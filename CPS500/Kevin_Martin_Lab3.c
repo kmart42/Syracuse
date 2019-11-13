@@ -2,7 +2,7 @@
 **
 **  File Name     : Kevin_Martin_Lab3.c (corrections to Lab2)
 **  Creation Date : 10-23-2019
-**  Last Modified : Wed 23 Oct 2019 10:47:32 PM PDT
+**  Last Modified : Thu 24 Oct 2019 09:31:24 PM PDT
 **  Compiler      : gcc -march=native -Wall -werror -std=gnu99 -lm
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -16,9 +16,7 @@
 #define MAX 35
 
 // Global variable for question 2
-// *UPDATE* added global pointer variable
 int globalVariable = 50;
-int *globalPtr = &globalVariable;
 
 // Point structure for question 4
 struct Point {
@@ -109,7 +107,7 @@ int power(int x, int y) {
 // Question 2: function to reassign pointer to a global variable
 // The pointer variable ptr was initialized to NULL in question_select
 // *UPDATE* moved print line out function, added double pointer argument type
-void reAssign(int **ptr) { *ptr = globalPtr; }
+void reAssign(int **ptr) { *ptr = &globalVariable; }
 
 // Question 3: function to determine second largest value in array A[]
 // Function comp to allow qsort to sort in ascending order
