@@ -2,7 +2,7 @@
 **
 **  File Name     : Kevin_Martin_Week6.c
 **  Creation Date : 11-07-2019
-**  Last Modified : Wed 13 Nov 2019 06:58:10 PM PST
+**  Last Modified : Sat 23 Nov 2019 06:19:02 PM PST
 **  Compiler      : gcc -march=native -Wall -werror -std=gnu99
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -28,7 +28,8 @@ int product(int lhs, int count, int size, int arr[]) {
   // Move one past index, find product of all numbers to the right
   int rhs = product(left_prod, count + 1, size, arr);
 
-  // Current index of array is set to product of all other elements, excluding itself
+  // Current index of array is set to product of all other elements, excluding
+  // itself
   arr[count] = lhs * rhs;
 
   // Inlclude current index in remaining values
@@ -54,7 +55,7 @@ void stringPerm(char* input, int beg, int end) {
   } else {
     for (int i = beg; i <= end; i++) {
       // Move up the array and swap the next pair of chars
-      
+
       char temp1 = *(input + beg);
       *(input + beg) = *(input + i);
       *(input + i) = temp1;
