@@ -2,7 +2,7 @@
 **
 **  File Name     : Kevin_Martin_Week8.c
 **  Creation Date : 11-23-2019
-**  Last Modified : Tue 26 Nov 2019 10:05:48 PM PST
+**  Last Modified : Thu 28 Nov 2019 09:35:47 PM PST
 **  Compiler      : gcc -march=native -Wall -Werror -std=gnu99 -lm
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -209,8 +209,8 @@ int main() {
   }
 
   // Question 3
-  int heap_arr[] = {3, 2, 1, 5, 4};
-  //int heap_arr[] = {5, 8, 13, 2, 19};
+  //int heap_arr[] = {3, 2, 1, 5, 4};
+  int heap_arr[] = {5, 8, 13, 2, 19};
   int heap_size = sizeof(heap_arr) / sizeof(int);
   Heap* input = minHeap(heap_size );
   for (int i = 0; i < heap_size; i++) {
