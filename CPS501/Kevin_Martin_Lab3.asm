@@ -1,11 +1,12 @@
 .data 
-array: .word 0, 5, 15, 3, 18, 7, 20, 2, 16, 1 
+#array: .word 0, 5, 15, 3, 18, 7, 20, 2, 16, 1 
+array: .word 10, 9, 90, 8, 7, 6, 5, 4, 3, 2, 1
 .text 
 .globl main
 main:
 la $t0, array 
 addi $a0, $t0, 0 # start address of array
-addi $a1, $zero, 10 # a1 = n
+addi $a1, $zero, 11 # a1 = n
 jal shellSort
 end:jal print #call print routine
 li $v0, 10 
@@ -92,7 +93,7 @@ space:.asciiz " " #spaces to insert between printed numters
 head:.asciiz " The modified array is:\n" #header line for print
 .text
 print: add $t0, $zero, $a0 #starting address of array
-add $t1, $zero, 10 #initialize loop, known size of 10 elements
+add $t1, $zero, 11 #initialize loop, known size of 10 elements
 la $a0, head #load address of the print heading, defined above
 li $v0, 4 #syscall 4 is print string
 syscall
