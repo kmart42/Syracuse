@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newtheorem*{claim}{Claim}
+\renewcommand\qedsymbol{$\blacksquare$} 
+\begin{document}
+\begin{claim}
+  For any integer $n$ \(\geq\) 1, \(2^1+2^2+2^3+ ... +2^n = 2^{n+1}-2\).
+\end{claim}
+ 
+\begin{proof}
+By induction. Base case: Let n = 1. Then \(2^1=2^{1+1}-2\). The right hand side evalutes 
+  to 4 - 2, which is equal to the left hand side 2. From Inductive Hypothesis: 
+  assume claim holds for some $n$. We will show it holds for \(n+1\).
+  \(2^1+...+2^n+2^{n+1} = 2^{n+1}-2+2^{n+1}\). Combining like terms, we get
+  \(2^{n+2}-2 = 2^{(n+1)+1} - 2\), which is what we were looking for.
+
+\end{proof}
+\end{document}
+
+
