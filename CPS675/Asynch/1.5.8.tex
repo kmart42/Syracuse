@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\author{Kevin Martin\\ CIS675 - Syracuse University}
+\title{Exercise 1.5.4}
+
+\newtheorem*{claim}{Claim}
+\renewcommand\qedsymbol{$\blacksquare$} 
+\begin{document}
+\maketitle
+
+To make L<0 but less than infinity (and thus f(x)=O(g(x))), g(x) must grow about as fast as f(x).
+Looking at the dominant term of f(x), \(x^4\), let g(x) = \(x^4\). Using the Limit Theorem, and applying L'Hopital's Rule:
+L = $\lim_{x\to\infty}$ = \(f/g\) = \(5x^4+3x^2+10,000/x^4\)\\
+ '= \(20x^3+6x/4x^3\)\\
+ '= \(60x^2+6/12x^2\)\\
+ '= \(120x/24x\)\\
+ '= \(120/24\)\\
+ '= 5\\
+ Because L = 0, f(x) = o(g(x)) and f(x) = O(g(x))
+\end{document}
+
+

@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\author{Kevin Martin\\ CIS675 - Syracuse University}
+\title{Exercise 1.5.4}
+
+\newtheorem*{claim}{Claim}
+\renewcommand\qedsymbol{$\blacksquare$} 
+\begin{document}
+\maketitle
+
+The asymptotic relationship between f(x)=\(x^2\) and g(x)=\(2^x\) is as follows:\\
+L = lim \(f/g\) = \(x^2/2^x\)\\
+ '= lim \(2^x/ln2*2^x\)\\
+ '= lim \(2/(ln2)^2*2^x\)\\
+ '= 0\\
+ Because L = 0, f(x) = o(g(x)) and f(x) = O(g(x))
+\end{document}
+
+
