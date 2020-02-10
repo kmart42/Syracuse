@@ -6,13 +6,17 @@
 \usepackage{mathtools}
 
 \author{Kevin Martin\\ CIS675 - Syracuse University}
-\title{Exercise 3.2.2}
+\title{Exercise 4.2.4}
 
 \newtheorem*{claim}{Claim}
 \renewcommand\qedsymbol{$\blacksquare$} 
 \begin{document}
 \maketitle
-An adjacency matrix takes $n^2$ as, at most, it will be a full two-dimenstional array.
+To modifiy the code to keep track of what the edges in the shortest path
+actually are, add to the distance vector the edges $u$ and $v$, and 
+update them accordingly when a shorter path is found:\\\\
+dist[i] = u;\\
+dist[j] = v;\\
 \end{document}
 
 

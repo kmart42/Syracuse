@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\author{Kevin Martin\\ CIS675 - Syracuse University}
+\title{Exercise 3.3.7}
+
+\newtheorem*{claim}{Claim}
+\renewcommand\qedsymbol{$\blacksquare$} 
+\begin{document}
+\maketitle
+Claim: all nodes reachable from $u$ will be marked as visited.
+\begin{proof} By induction, on distance form $u$. (for every node v, which is i
+  reachable from u, there is some path from u to v).\\
+  Let $k_{v}$ be teh distance from $u$ to $v$.\\
+  Base case: $k_{V}$=0. (can get to $v$ in zero steps, so $v$ must equal u). So v=u.
+  Thus u is marked as visited.\\
+  IH: suppose all nodes distance $d$ from $u$ will marked. Show nodes $d$+1 distance
+  from $u$ get marked. These nodes get explored when their neighbors, which are
+  distance $d$ from $u$ get explored. So the nodes at distance $d$+1 from $u$
+  get visited. 
+\end{proof}
+
+\end{document}
+
+

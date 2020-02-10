@@ -6,13 +6,15 @@
 \usepackage{mathtools}
 
 \author{Kevin Martin\\ CIS675 - Syracuse University}
-\title{Exercise 3.2.2}
+\title{Exercise 3.4.10}
 
 \newtheorem*{claim}{Claim}
 \renewcommand\qedsymbol{$\blacksquare$} 
 \begin{document}
 \maketitle
-An adjacency matrix takes $n^2$ as, at most, it will be a full two-dimenstional array.
+If the explore procedure is called on a node in a sink SCC, then the set of nodes visited is 
+exactly that SCC. This is true because, by definition, a sink SCC has no outgoing edges.
+Thus any node in that SCC returns the same result.
 \end{document}
 
 
