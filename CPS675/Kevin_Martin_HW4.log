@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.31)  11 FEB 2020 22:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.31)  19 FEB 2020 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Kevin_Martin_HW3.tex
-(./Kevin_Martin_HW3.tex
+**Kevin_Martin_HW4.tex
+(./Kevin_Martin_HW4.tex
 LaTeX2e <2019-10-01> patch level 1
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
@@ -191,35 +191,61 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen122
 \Gin@req@width=\dimen123
 )
-(./Kevin_Martin_HW3.aux)
-\openout1 = `Kevin_Martin_HW3.aux'.
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count106
+\Gm@cntv=\count107
+\c@Gm@tempcnt=\count108
+\Gm@bindingoffset=\dimen124
+\Gm@wd@mp=\dimen125
+\Gm@odd@mp=\dimen126
+\Gm@even@mp=\dimen127
+\Gm@layoutwidth=\dimen128
+\Gm@layoutheight=\dimen129
+\Gm@layouthoffset=\dimen130
+\Gm@layoutvoffset=\dimen131
+\Gm@dimlist=\toks30
+)
+(./Kevin_Martin_HW4.aux)
+\openout1 = `Kevin_Martin_HW4.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen124
+\scratchcounter=\count109
+\scratchdimen=\dimen132
 \scratchbox=\box29
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen125
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks31
+\nofMPsegments=\count110
+\nofMParguments=\count111
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count112
+\MPscratchDim=\dimen133
+\MPnumerator=\count113
+\makeMPintoPDFobject=\count114
+\everyMPtoPDFconversion=\toks32
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -251,10 +277,6 @@ Package ifluatex Info: LuaTeX not detected.
 (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-)
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -271,136 +293,149 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(54.2025pt, 505.89pt, 54.2025pt)
+* v-part:(T,H,B)=(54.2025pt, 686.56499pt, 54.2025pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=505.89pt
+* \textheight=686.56499pt
+* \oddsidemargin=-18.06749pt
+* \evensidemargin=-18.06749pt
+* \topmargin=-55.06749pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<inttable3.png, id=1, 1135.24126pt x 373.395pt>
-File: inttable3.png Graphic file (type png)
-<use inttable3.png>
-Package pdftex.def Info: inttable3.png  used on input line 24.
-(pdftex.def)             Requested size: 454.08846pt x 149.35535pt.
+<mincut1.png, id=1, 1055.945pt x 747.79375pt>
+File: mincut1.png Graphic file (type png)
+<use mincut1.png>
+Package pdftex.def Info: mincut1.png  used on input line 25.
+(pdftex.def)             Requested size: 380.13991pt x 269.20554pt.
+ [1
 
-Overfull \hbox (109.08846pt too wide) in paragraph at lines 24--25
- [][] 
- []
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./mincut1.png>]
+<mincut2.png, id=13, 964.60374pt x 689.57625pt>
+File: mincut2.png Graphic file (type png)
+<use mincut2.png>
+Package pdftex.def Info: mincut2.png  used on input line 32.
+(pdftex.def)             Requested size: 347.25708pt x 248.24725pt.
+<mincut3.png, id=14, 488.82625pt x 208.78pt>
+File: mincut3.png Graphic file (type png)
+<use mincut3.png>
+Package pdftex.def Info: mincut3.png  used on input line 37.
+(pdftex.def)             Requested size: 175.97731pt x 75.16072pt.
 
-<shorttree3.png, id=3, 598.235pt x 275.0275pt>
-File: shorttree3.png Graphic file (type png)
-<use shorttree3.png>
-Package pdftex.def Info: shorttree3.png  used on input line 29.
-(pdftex.def)             Requested size: 418.76164pt x 192.51793pt.
-
-Overfull \hbox (120.76167pt too wide) in paragraph at lines 28--30
-[] 
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./inttable3.png>]
-<adjmatrix3.png, id=13, 202.7575pt x 186.6975pt>
-File: adjmatrix3.png Graphic file (type png)
-<use adjmatrix3.png>
-Package pdftex.def Info: adjmatrix3.png  used on input line 32.
-(pdftex.def)             Requested size: 152.06775pt x 140.02277pt.
-<adjlist3.png, id=14, 349.305pt x 334.24875pt>
-File: adjlist3.png Graphic file (type png)
-<use adjlist3.png>
-Package pdftex.def Info: adjlist3.png  used on input line 35.
-(pdftex.def)             Requested size: 174.65207pt x 167.12396pt.
-
-[2 <./shorttree3.png> <./adjmatrix3.png> <./adjlist3.png>]
-<prim3.png, id=21, 1129.21875pt x 386.44376pt>
-File: prim3.png Graphic file (type png)
-<use prim3.png>
-Package pdftex.def Info: prim3.png  used on input line 44.
-(pdftex.def)             Requested size: 451.6795pt x 154.57475pt.
-
-Overfull \hbox (106.6795pt too wide) in paragraph at lines 44--45
- [][] 
- []
-
-<kruskal3.png, id=22, 1246.6575pt x 825.0825pt>
-File: kruskal3.png Graphic file (type png)
-<use kruskal3.png>
-Package pdftex.def Info: kruskal3.png  used on input line 52.
-(pdftex.def)             Requested size: 448.79636pt x 297.02948pt.
-
-Overfull \hbox (103.79636pt too wide) in paragraph at lines 52--53
- [][] 
- []
-
-[3 <./prim3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 60--65
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--65
+Underfull \hbox (badness 10000) in paragraph at lines 46--58
 
  []
 
-[4 <./kruskal3.png>]
-<huffman3.png, id=34, 603.25375pt x 575.14874pt>
-File: huffman3.png Graphic file (type png)
-<use huffman3.png>
-Package pdftex.def Info: huffman3.png  used on input line 91.
-(pdftex.def)             Requested size: 392.11029pt x 373.84225pt.
 
-Overfull \hbox (47.11029pt too wide) in paragraph at lines 91--92
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--104
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
-[5 <./huffman3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--115
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--87
 
  []
 
-<feasiblegraph3.png, id=41, 725.71124pt x 438.63875pt>
-File: feasiblegraph3.png Graphic file (type png)
-<use feasiblegraph3.png>
-Package pdftex.def Info: feasiblegraph3.png  used on input line 120.
-(pdftex.def)             Requested size: 435.4301pt x 263.18527pt.
 
-Overfull \hbox (90.4301pt too wide) in paragraph at lines 120--121
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 71--87
+
  []
 
-[6 <./feasiblegraph3.png>] [7] (./Kevin_Martin_HW3.aux) ) 
+[2 <./mincut2.png> <./mincut3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--135
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
+
+ []
+
+<feasiblegraph4.png, id=26, 847.165pt x 473.77pt>
+File: feasiblegraph4.png Graphic file (type png)
+<use feasiblegraph4.png>
+Package pdftex.def Info: feasiblegraph4.png  used on input line 158.
+(pdftex.def)             Requested size: 465.94218pt x 260.57431pt.
+[4 <./feasiblegraph4.png>] (./Kevin_Martin_HW4.aux) ) 
 Here is how much of TeX's memory you used:
- 3882 strings out of 492167
- 52454 string characters out of 6131558
- 129718 words of memory out of 5000000
- 8174 multiletter control sequences out of 15000+600000
- 10629 words of font info for 42 fonts, out of 8000000 for 9000
+ 4347 strings out of 492167
+ 59143 string characters out of 6131558
+ 149481 words of memory out of 5000000
+ 8633 multiletter control sequences out of 15000+600000
+ 10283 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,7n,31p,283b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb>
-Output written on Kevin_Martin_HW3.pdf (7 pages, 1421085 bytes).
+ 46i,7n,37p,283b,368s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb>
+Output written on Kevin_Martin_HW4.pdf (4 pages, 1095803 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 54 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

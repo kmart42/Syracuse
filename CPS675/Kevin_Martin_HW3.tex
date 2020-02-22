@@ -16,7 +16,46 @@
 \begin{document}
 \maketitle
 \begin{enumerate}
-    \item Question 3
+  \item Question 1
+    \begin{enumerate}
+        \item Table showing the intermediate distance values of all nodes at each iteration:\\
+          \begin{figure}[h]
+            \centering
+          \includegraphics[scale=.4]{inttable3.png}
+          \end{figure}
+
+
+        \item Final shortest-path tree:\\
+        \includegraphics[scale=.7]{shorttree3.png}
+
+        \item Adjaceny matrix representation with costs:\\
+        \includegraphics[scale=.75]{adjmatrix3.png}
+
+        \item Adjaceny list representation with costs:\\
+        \includegraphics[scale=.5]{adjlist3.png}
+
+    \end{enumerate}
+
+    \item Question 2
+      \begin{enumerate}
+          \item The intermediate values of the delay array in each iteration, using Prim's algorithm:\\
+            \begin{figure}[h]
+              \centering
+            \includegraphics[scale=.40]{prim3.png}
+            \end{figure}
+
+          \item The disjoint-sets data structure at every intermediate stage, both regular intervals
+            as well as assuming compression, using Kruskal's algorithm:\\
+            \pagebreak
+          \begin{figure}[h]
+            \centering
+          \includegraphics[scale=.36]{kruskal3.png}
+          \end{figure}
+
+        \end{enumerate}
+
+
+  \item Question 3
       \begin{enumerate}
     \item \ Pseudocode for a greedy algorithm to compute optimal order and minimize wait time:\\\\
       Sort the service time in ascending order, and serve them in order of increasing scheduling
@@ -42,7 +81,30 @@
       \end{proof}
 
   \end{enumerate}
-    \item Question 5
+
+  \item Question 4
+    \begin{enumerate}
+      \item Optimum Huffman encoding (note: very unfavorable/inefficent outcome given the Fibonacci
+        sequencing of the alphabet):\\
+        \begin{figure}[h]
+          \centering
+        \includegraphics[scale=.65]{huffman3.png}
+        \end{figure}
+
+      \item The expected bits per letter are as follows:\\
+        A: 8\\
+        B: 8\\
+        C: 7\\
+        D: 6\\
+        E: 5\\
+        F: 4\\
+        G: 3\\
+        H: 2\\
+        I: 1\\
+
+    \end{enumerate}
+
+  \item Question 5
       \begin{enumerate}
         \item To represent the situation as a linear problem, we formulate as follows, letting 
           $x_{1}$ be coffee mugs and $x_{2}$ be milk glasses:\\
@@ -53,85 +115,23 @@
 
 
         \item Graph of feasible region:
-
-
-
+          \begin{figure}[h]
+            \centering
+        \includegraphics[scale=.6]{feasiblegraph3.png}
+        \end{figure}
+    
         \item The coordinates of all vertices of the feasible region are:\\
           (0, 0), (90, 0), (45, 75), (0, 120)
 
         \item The optimal product mix to maximize daily proift is:\\
-          45 coffee mugs at \$ 25 each and 90 milk glasses at \$ 20 each 
+          45 coffee mugs at \$ 25 each and 90 milk glasses at \$ 20 each, which 
           gives a total profit of \$2,625 per day.
-          This is represented on the graph but the furthest out point on on the 
-          feasible region, represented by the tangential dotted line.
-
-
-
+          This is represented on the graph by the furthest out point on on the 
+          feasible region, where the tangential dotted line intercepts the point
+          (45, 75).
 
       \end{enumerate}
 
-\item Question 3\\\\
-  \begin{enumerate}
-  \item The adjacency matrix representation:\\
-  \includegraphics[scale=1]{adjmatrix.png}
-  
-  \item The adjacency list representation:\\
-    $A: B \to F$\\
-    $B: C \to E$\\
-    $C: D$\\
-    $D: B \to H$\\
-    $E: D \to G$\\
-    $F: E \to G$\\
-    $G: F$\\
-    $H: G$
-    
-    \item Table for intermediate visited, pre, and post values of all nodes:\\
-    \includegraphics[width=\textwidth]{inttable.png}\\
-    \pagebreak
-    \item Final DFS tree:\\
-    \includegraphics[scale=1]{dfstree.png}
-
-
-  \end{enumerate}
-\pagebreak
-\item Question 4\\\\
-  Pseudocode of an efficient algorithm to take in graph G(V, E), represetned by an adjacency list,
-    and two vertices $x, y \in V$, where the output is the different paths from $x$ to $y$ in G:\\\\
-    //wrapper function to set empty path\\
-    def diffPathsWrap(x, y, G)\\
-    for i = 1 to (size-1) do\\
-    \tab visited[i] = False\\     
-    \tab path = [] //empty array for each path\\
-    diffPaths(x, y, G, path)\\\\
-
-    def diffPaths(x,y, visited, path)\\
-    visited[x]=True\\
-    if x == y\\
-    \tab return path\\
-    else\\
-    \tab for j in G[x] do\\
-    \tab \tab if visited[j] == False\\
-    \tab \tab \tab return diffPaths(x, y, visited, path)\\
-   \tab \tab path[j].remove //remove current vertex from path\\
-   \tab \tab visited[j] = False
-
-\item Question 5\\
-  \begin{enumerate}
-      \item The order of the strongly connected componets is:\\
-        $A \to B \to E$\\
-        $C$\\
-        $D \to H \to F \to I \to H \to D$
-      \item The source SCC is $A \to B \to E$ and the sink SCC 
-        is $D \to H \to F \to I \to H \to D$\\
-        \pagebreak
-      \item Metagraph:\\
-      \includegraphics[width=\textwidth]{metagraph.png}
-      \item The minimum number of edges one must add to make the graph 
-        strongly connected is just one: from $D \to G$. If that edge were
-        added, then we could get to any vertex from any other.
-
-
-  \end{enumerate}
 \end{enumerate}
 \end{document}
 

@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\author{Kevin Martin\\ CIS675 - Syracuse University}
+\title{Exercise 6.3.4}
+
+\newtheorem*{claim}{Claim}
+\renewcommand\qedsymbol{$\blacksquare$} 
+\begin{document}
+\maketitle
+To maximize the profit for the total restaurants:\\\\
+
+def restProfit(c[], size)\\
+\tab c[] = 0 // all elements in array as zero\\
+\tab total = 0\\
+\tab for i = 1 to size:\\
+\tab \tab c[j] = max{Pj, (i,j)$\in$ E: C(i)+Pj}\\
+\tab \tab total = max(c[j], total)\\
+\tab return total
+
+\end{document}
+
+
