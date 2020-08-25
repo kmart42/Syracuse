@@ -45,7 +45,9 @@ def run_parse():
     u_input = user_input.get()
     #typ, cmd, op1, op2, op3 = user_input.split(" ")
     user_result=u_input
-
+    T = tk.Text(window, height=10, width=30) 
+    #T.pack() 
+    T.insert(tk.END, user_result) 
 
 
 window = tk.Tk()
