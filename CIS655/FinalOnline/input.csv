@@ -1,0 +1,12 @@
+action,reg1,reg2,reg3
+lw,$r1,0($s2),
+addi,$t0,$r1,5
+sw,$t0,0($s4),
+add,$r1,$r2,$r3
+sub,$r4,$r1,$r5
+lw,$t0,0($s2),
+add,$r6,$r7,$r8
+beq,$r6,$r1,done
+lw,$t6,0($s2),
+lw,$t7,4($s2),
+add,$t3,$t6,$t1
