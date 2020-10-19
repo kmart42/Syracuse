@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Project 1</string>
+    <string name="tile_index">0</string>
+    <string-array name="difficulties">
+        <item>"Easy"</item>
+        <item>"Medium"</item>
+        <item>"Hard"</item>
+    </string-array>
+
+</resources>
