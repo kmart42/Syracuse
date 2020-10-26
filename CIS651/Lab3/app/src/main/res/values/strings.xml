@@ -1,0 +1,23 @@
+<resources>
+    <string name="fname">Name:</string>
+    <string name="lname">Last Name:</string>
+    <string name="first_last">Name: LastName:</string>
+    <string name="city_zip">City: Zip:</string>
+    <string name="lang">Detail:</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="next">Next</string>
+    <string name="prev">Back</string>
+    <string name="addr1">Address 1</string>
+    <string name="addr2">Address 2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
+    <string name="details1">Details1</string>
+    <string name="details2">Details2</string>
+    <string name="details3">Details3</string>
+    <string name="details4">Details4</string>
+    <string name="details5">Details5</string>
+    <string name="finish">Finish</string>
+    <string name="app_name">Lab3</string>
+</resources>
