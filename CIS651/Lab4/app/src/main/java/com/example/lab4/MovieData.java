@@ -118,7 +118,7 @@ public class MovieData {
 		year = "2006";
 		length = "151 min";
 		rating = 7.3;
-		director = "Gore Verbinski" ;
+		director = "Gore VerbinonItemClickski" ;
 		stars = "Johnny Depp, Orlando Bloom, Keira Knightley";
 		url ="http://ia.media-imdb.com/images/M/MV5BMTcwODc1MTMxM15BMl5BanBnXkFtZTYwMDg1NzY3._V1_SY317_CR0,0,214,317_AL_.jpg";
 		description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.";
