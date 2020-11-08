@@ -8,6 +8,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,7 +18,15 @@ import java.util.Map;
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder> implements Filterable {
     private List<Map<String, ?>> md;
     private List<Map<String, ?>> md_filtered;
-    private OnListItemClickListener onListItemClickListener=null;
+    private ListFragment.OnItemSelectedListener clickListener=null;
+
+    @Override
+    public MyRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_layout, parent, false);
+        final ViewHolder viewHolder = new ViewHolder(v);
+        return viewHolder;
+    }
+
     public MyRecyclerAdapter(List<Map<String, ?>> list)
     {
         md=md_filtered=list;
@@ -57,9 +66,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         public ImageView poster_img;
         public ViewHolder(View view){
             super(view);
-//            movie_name = (TextView)view.findViewById(R.id.movie_name);
-//            movie_year = (TextView)view.findViewById(R.id.movie_year);
-//            poster_img = (ImageView)view.findViewById(R.id.poster_photo);
+            movie_name = (TextView)view.findViewById(R.id.movie_name);
+            movie_year = (TextView)view.findViewById(R.id.movie_year);
+            poster_img = (ImageView)view.findViewById(R.id.poster_photo);
         }
 
     }
@@ -68,8 +77,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         return md_filtered.get(i);
     }
 
-    public void setOnItemClickListener(OnListItemClickListener listener){
-        onListItemClickListener=listener;
+    public void setOnItemClickListener(ListFragment.OnItemSelectedListener listener){
+        clickListener=listener;
     }
 
 
@@ -79,29 +88,18 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         holder.movie_name.setText(md_filtered.get(position).get("name").toString());
         holder.movie_year.setText(md_filtered.get(position).get("year").toString());
         holder.poster_img.setImageResource(Integer.parseInt(md_filtered.get(position).get("image").toString()));
+        ViewCompat.setTransitionName(holder.poster_img,md_filtered.get(position).get("name").toString());
+        holder.poster_img.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(clickListener!=null)
+                    clickListener.onListItemSelected(view,Integer.parseInt(md_filtered.get(position).get("image").toString()),
+                            md_filtered.get(position).get("name").toString(),
+                            md_filtered.get(position).get("year").toString());
+            }
+        });
     }
 
-    @Override
-    public MyRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
-        final ViewHolder view_holder = new ViewHolder(v);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                if (onListItemClickListener != null)
-                    onListItemClickListener.onItemClick(v, view_holder.getAdapterPosition());
-            }
-        });
-        v.setOnLongClickListener(new View.OnLongClickListener(){
-            @Override
-            public boolean onLongClick(View v){
-                if(onListItemClickListener!=null)
-                    onListItemClickListener.onItemLongClick(v,view_holder.getAdapterPosition());
-                return true;
-            }
-        });
-        return view_holder;
-    }
 
 
     @Override
@@ -110,6 +108,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     public void onAttachedToRecyclerView(RecyclerView recyclerView){
 
     }
+
+
 
 
 

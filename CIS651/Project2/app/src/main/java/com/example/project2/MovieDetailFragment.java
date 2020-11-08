@@ -1,6 +1,5 @@
 package com.example.project2;
 
-import android.media.Rating;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 public class MovieDetailFragment extends Fragment {
-    public static MovieDetailFragment newInstance(int i, String t, String y, float r, String d, String a)
+    public static MovieDetailFragment newInstance(int i, String t, String y, float r, String d)
     {
         MovieDetailFragment movieDetailFragment=new MovieDetailFragment();
         Bundle args=new Bundle();
@@ -22,7 +21,6 @@ public class MovieDetailFragment extends Fragment {
         args.putString("year",y);
         args.putFloat("rating",r);
         args.putString("description",d);
-        args.putString("stars",a);
         movieDetailFragment.setArguments(args);
         return movieDetailFragment;
     }
@@ -32,9 +30,9 @@ public class MovieDetailFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_layout, container, false);
         ImageView imageView=v.findViewById(R.id.large_image);
         imageView.setImageResource(args.getInt("id"));
-        EditText editText=v.findViewById(R.id.title_text);
+        TextView editText=v.findViewById(R.id.title_text);
         editText.setText(args.getString("title"));
-        EditText yearText=v.findViewById(R.id.year_text);
+        TextView yearText=v.findViewById(R.id.year_text);
         yearText.setText(args.getString("year"));
         RatingBar ratingBar=v.findViewById(R.id.movie_rating);
         ratingBar.setRating(args.getFloat("rating"));

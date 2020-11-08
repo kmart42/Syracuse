@@ -1,22 +1,21 @@
 package com.example.project2;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.PagerTabStrip;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-
-import java.util.List;
 import java.util.Map;
 
 
 public class SlideActivity extends FragmentActivity {
-        private static final int NUM_PAGES = 5;
+        MovieData md=new MovieData();
+        private int pages = md.getSize();
         private ViewPager mPager;
         private PagerAdapter pagerAdapter;
 
@@ -29,8 +28,8 @@ public class SlideActivity extends FragmentActivity {
             mPager = (ViewPager) findViewById(R.id.pager);
             pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
             mPager.setAdapter(pagerAdapter);
-        }
 
+        }
 
         @Override
         public void onBackPressed() {
@@ -46,20 +45,28 @@ public class SlideActivity extends FragmentActivity {
 
 
         private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+            MovieData md=new MovieData();
 
             public ScreenSlidePagerAdapter(FragmentManager fm) {
                 super(fm);
             }
-
             @Override
             public Fragment getItem(int position) {
-
+                Variables.setmPosition(position);
+                System.out.println(position);
                 return new ScreenSlide();
             }
 
             @Override
             public int getCount() {
-                return NUM_PAGES;
+                return pages;
             }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                Map hashMap = md.moviesList.get(position);
+                return hashMap.get("name").toString();
         }
     }
+
+}

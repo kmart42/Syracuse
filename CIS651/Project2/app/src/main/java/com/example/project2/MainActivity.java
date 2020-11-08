@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start(){
-        Intent intent = new Intent(this, SlideActivity.class);
+        Intent intent = new Intent(this, MasterActivity.class);
         startActivity(intent);
     }
 }
+
