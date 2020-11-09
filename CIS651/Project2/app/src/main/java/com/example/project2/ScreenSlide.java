@@ -4,15 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Map;
 
@@ -30,7 +26,6 @@ public class ScreenSlide extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_layout, container, false);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.large_image);
-        imageView.setImageResource(R.drawable.alice);
         imageView.setImageResource((getResources().getIdentifier(img, "drawable", getContext().getPackageName())));
         TextView titleText=rootView.findViewById(R.id.title_text);
         titleText.setText(hashMap.get("name").toString());
