@@ -3,17 +3,11 @@ package com.example.lab6;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
 
 public class UpdateContact extends AppCompatActivity {
     private EditText mNameEditText;
@@ -27,11 +21,6 @@ public class UpdateContact extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_contact);
-//        View view = getLayoutInflater().inflate(R.layout.activity_update_contact, null);
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//        dialog.setView(view);
-//        System.out.println("here");
-////        dialog.show();
 
         mNameEditText = (EditText)findViewById(R.id.contactName);
         mLastname = (EditText)findViewById(R.id.contactLastname);
@@ -58,7 +47,7 @@ public class UpdateContact extends AppCompatActivity {
 
 
 
-    private void updateContact(){
+    public void updateContact(){
         String name = mNameEditText.getText().toString().trim();
         String lastname = mLastname.getText().toString().trim();
         String phone = mPhoneEditText.getText().toString().trim(); if(name.isEmpty()){
