@@ -42,12 +42,12 @@ public class SignupLogin extends AppCompatActivity {
         if(currentUser!=null){
             findViewById(R.id.displayNameLayout).setVisibility(View.GONE);
             findViewById(R.id.phoneNumberLayout).setVisibility(View.GONE);
-            signupBtn.setVisibility(View.GONE);
+//            signupBtn.setVisibility(View.GONE);
         }
     }
     private void saveUserDataToDB(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("Users");
+        DatabaseReference usersRef = database.getReference("Users");  //.child("")
         usersRef.child(currentUser.getUid()).setValue(new User(displayname.getText().toString(),
                 email.getText().toString(), phonenumber.getText().toString()));
 
@@ -67,7 +67,7 @@ public class SignupLogin extends AppCompatActivity {
                             currentUser.sendEmailVerification().addOnSuccessListener(SignupLogin.this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(SignupLogin.this, "Signup successful. Verification email Setn!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignupLogin.this, "Signup successful. Verification email Sent!", Toast.LENGTH_SHORT).show();
                                     saveUserDataToDB();
                                     updateUI();
                                 }
@@ -114,7 +114,7 @@ public class SignupLogin extends AppCompatActivity {
                 .addOnSuccessListener(SignupLogin.this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(SignupLogin.this, "Verification email Setn!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupLogin.this, "Verification email sent again!", Toast.LENGTH_SHORT).show();
                         updateUI();
                     }
                 }).addOnFailureListener(SignupLogin.this, new OnFailureListener() {
@@ -152,4 +152,9 @@ public class SignupLogin extends AppCompatActivity {
                 });
 
     }
+    @Override
+    public void onBackPressed() {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
 }

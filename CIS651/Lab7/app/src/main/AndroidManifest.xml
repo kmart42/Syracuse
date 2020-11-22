@@ -9,12 +9,16 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
+        android:authorities="com.google.android.gms.phenotype"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false"/>
         <activity android:name="com.example.Lab7.PhotoPreview" android:theme="@style/Theme.MyAlert"></activity>
         <activity
             android:name="com.example.Lab7.EditProfile"
@@ -23,6 +27,7 @@
             android:name="com.example.Lab7.SignupLogin"
             android:theme="@style/Theme.Splash" />
         <activity android:name="com.example.Lab7.HomeActivity" />
+        <activity android:name="com.example.Lab7.PostEdit" />
         <activity
             android:name="com.example.Lab7.MainActivity"
             android:theme="@style/Theme.Splash">

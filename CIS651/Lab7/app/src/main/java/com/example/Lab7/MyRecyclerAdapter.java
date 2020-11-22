@@ -1,17 +1,26 @@
 package com.example.Lab7;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -22,12 +31,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+import java.util.zip.Inflater;
 
 public class MyRecyclerAdapter
         extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>
@@ -76,11 +90,43 @@ public class MyRecyclerAdapter
 
                     @Override
                     public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                        String id = snapshot.child("uid").getValue().toString();
+                        int position = -1;
+                        for (int i=0; i<postsList.size();i++){
+                            if(postsList.get(i).uid.equals(id)){
+                                position = i;
+                                break;
+                            }
+                        }
+                        if(position!=-1){
+                            postsList.remove(position);
+                            PostModel userModel=new PostModel(snapshot.child("uid").getValue().toString(),
+                                    snapshot.child("description").getValue().toString(),
+                                    snapshot.child("url").getValue().toString(),
+                                    localDateFormat.format(new Date(Long.parseLong(snapshot.child("timestamp").getValue().toString()))) ,
+                                    snapshot.getKey());
+                            postsList.add(position, userModel);
+                            MyRecyclerAdapter.this.notifyItemRemoved(position);
+                            r.scrollToPosition(position);
+                        }
                     }
 
                     @Override
                     public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                        String id = snapshot.child("uid").getValue().toString();
+                        int position=-1;
+                        for(int i=0;i<postsList.size();i++){
+                            if(postsList.get(i).uid.equals(id)){
+                                position=i;
+                                break;
+                            }
+                        }
+                        if(position!=-1){
+                            postsList.remove(position);
+                            MyRecyclerAdapter.this.notifyItemRemoved(position);
+                            r.scrollToPosition(position);
+                        }
+
 
                     }
 
@@ -105,9 +151,9 @@ public class MyRecyclerAdapter
             }
 
             @Override
-            public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+            public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
                 final PostModel u =postsList.get(position);
-                String uid=u.uid;
+                final String uid=u.uid;
                 if(holder.uref!=null && holder.urefListener!=null)
                 {
                     holder.uref.removeEventListener(holder.urefListener);
@@ -209,11 +255,31 @@ public class MyRecyclerAdapter
 
                 holder.description_v.setText(u.description);
 
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PopupMenu popupMenu = new PopupMenu(v.getContext(), holder.imageView, Gravity.END);
+                        popupMenu.getMenu().add("Delete");
+                        popupMenu.getMenu().addSubMenu("Modify");
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                if("Delete".equals(item.toString())) {
+                                holder.uref = database.getReference("Posts/"+u.postKey);
+                                holder.uref.removeValue();
+                                    return false;
+                                } else {
+                                    Intent intent=new Intent(holder.imageView.getContext(), PostEdit.class);
+                                    intent.putExtra("postKey",u.postKey);
+                                    holder.imageView.getContext().startActivity(intent);
+                                    return false;
+                                }
+                            }
 
-
-
-
-
+                        });
+                        popupMenu.show();
+                    }
+                });
             }
             public void removeListener(){
                 if(allPostsRef !=null && usersRefListener!=null)
@@ -252,5 +318,6 @@ public class MyRecyclerAdapter
                    likeCount=v.findViewById(R.id.likeCount);
                 }
             }
+
 
 }
