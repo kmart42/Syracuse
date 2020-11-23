@@ -99,7 +99,7 @@ public class MyRecyclerAdapter
                             }
                         }
                         if(position!=-1){
-                            postsList.remove(position);
+                            System.out.println("here2");
                             PostModel userModel=new PostModel(snapshot.child("uid").getValue().toString(),
                                     snapshot.child("description").getValue().toString(),
                                     snapshot.child("url").getValue().toString(),
@@ -126,8 +126,6 @@ public class MyRecyclerAdapter
                             MyRecyclerAdapter.this.notifyItemRemoved(position);
                             r.scrollToPosition(position);
                         }
-
-
                     }
 
                     @Override
@@ -271,6 +269,7 @@ public class MyRecyclerAdapter
                                 } else {
                                     Intent intent=new Intent(holder.imageView.getContext(), PostEdit.class);
                                     intent.putExtra("postKey",u.postKey);
+                                    intent.putExtra("description", u.description);
                                     holder.imageView.getContext().startActivity(intent);
                                     return false;
                                 }
