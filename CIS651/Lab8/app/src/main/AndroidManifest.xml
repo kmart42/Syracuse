@@ -27,6 +27,12 @@
             android:name="com.example.Lab8.EditProfile"
             android:theme="@style/Theme.Splash" />
         <activity
+            android:name="com.example.Lab8.PostMessage"
+            android:theme="@style/Theme.Splash" />
+        <activity
+            android:name="com.example.Lab8.ChangePic"
+            android:theme="@style/Theme.Splash" />
+        <activity
             android:name="com.example.Lab8.SignupLogin"
             android:theme="@style/Theme.Splash" />
         <activity android:name="com.example.Lab8.HomeActivity" />

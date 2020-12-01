@@ -20,6 +20,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3">
+        <ImageButton
+            android:layout_width="40dp"
+            android:id="@+id/profPic"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="false"></ImageButton>
         <ImageView
             android:id="@+id/postImg"
             android:layout_width="match_parent"

@@ -266,7 +266,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         DatabaseReference usersRef = database.getReference("Users");
         String pushKey = usersRef.push().getKey();
         usersRef.child(pushKey).setValue(new User("Test Display Name",
-                "Test Email", "Test Phone"));
+                "Test Email", imageUri, "Test Phone"));
     }
 
     public void uploadNewPhoto(View view) {

@@ -1,11 +1,16 @@
 package com.example.Lab8;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +51,7 @@ public class MyRecyclerAdapter
             private FirebaseUser currentUser;
             private List<String> keyList;
             private HashMap<String,PostModel> key_to_Post;
+            ImageView profPic;
            // private RecyclerView r;
             private Marker currentMarker =null;
             private  ItemClickListener itemClickListener;
@@ -86,6 +93,8 @@ public class MyRecyclerAdapter
                 holder.uref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        profPic = holder.profPic.findViewById(R.id.profPic);
+                        Picasso.get().load(String.valueOf(dataSnapshot.child("profilePicture").getValue())).into(profPic);
                         holder.fname_v.setText("First Name: " +dataSnapshot.child("displayname").getValue().toString());
                         holder.email_v.setText("Email:  " + dataSnapshot.child("email").getValue().toString());
                         holder.phone_v.setText("Phone Num:  " + dataSnapshot.child("phone").getValue().toString());
@@ -178,6 +187,43 @@ public class MyRecyclerAdapter
                             itemClickListener.onItmeClick(currentMarker.getPosition());
                     }
                 });
+
+
+//                final FirebaseDatabase storage = FirebaseDatabase.getInstance();
+//                String path= database.getReference("Users").child(uid).child("profilePicture").toString();
+//                final DatabaseReference imageRef=storage.getReference(path);
+                profPic = holder.profPic.findViewById(R.id.profPic);
+                Picasso.get().load(String.valueOf(database.getReference("Users").child(uid).child("profilePicture"))).into(profPic);
+//                profPic.setImageResource(R.drawable.profile_icon);
+//                imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                    @Override
+//                    public void onSuccess(Uri uri) {
+//                        // Got the download URL for 'users/me/profile.png'
+//                        // Pass it to Picasso to download, show in ImageView and caching
+//                        Picasso.get().load(uri.toString()).into(profPic);
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception exception) {
+//                        // Handle any errors
+//                    }
+//                });
+
+
+
+//                System.out.println(database.getReference("Users").child(uid).child("profilePicture"));
+//                Picasso.get().load(String.valueOf(database.getReference("Users").child(uid).child("profilePicture"))).into(profPic);
+
+                holder.profPic.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.imageView.getContext(), PostMessage.class);
+                        intent.putExtra("postKey",u.postKey);
+                        intent.putExtra("description", u.description);
+                        holder.imageView.getContext().startActivity(intent);
+                    }
+                });
+
                 holder.description_v.setText(u.description);
                 StorageReference pathReference = FirebaseStorage.getInstance().getReference("images/"+u.url);
                 pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -190,6 +236,7 @@ public class MyRecyclerAdapter
 
 
             }
+
             public void removeListener(){
                 if(usersRef!=null && usersRefListener!=null)
                     usersRef.removeEventListener(usersRefListener);
@@ -205,6 +252,7 @@ public class MyRecyclerAdapter
                 public TextView date_v;
                 public TextView description_v;
                 public ImageView imageView;
+                public ImageView profPic;
                 public  ImageView likeBtn;
                 public TextView likeCount;
                 DatabaseReference uref;
@@ -223,6 +271,7 @@ public class MyRecyclerAdapter
                    date_v = (TextView) v.findViewById(R.id.date_view);
                    description_v=v.findViewById(R.id.description);
                    imageView=v.findViewById(R.id.postImg);
+                   profPic=v.findViewById(R.id.profPic);
                    likeBtn=v.findViewById(R.id.likeBtn);
                    likeCount=v.findViewById(R.id.likeCount);
                 }
