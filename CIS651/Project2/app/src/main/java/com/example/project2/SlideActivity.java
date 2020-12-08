@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.PagerTabStrip;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.Map;

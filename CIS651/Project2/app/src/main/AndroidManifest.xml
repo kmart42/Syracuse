@@ -10,26 +10,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".NewActivity">
+        <activity android:name="com.example.project2.NewActivity">
         <intent-filter>
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".SlideActivity">
+        <activity android:name="com.example.project2.SlideActivity">
         <intent-filter>
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".MasterActivity"
+        <activity android:name="com.example.project2.MasterActivity"
             tools:ignore="Instantiatable">
             <intent-filter>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.project2.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

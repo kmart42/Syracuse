@@ -7,7 +7,6 @@ import android.transition.Slide;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;

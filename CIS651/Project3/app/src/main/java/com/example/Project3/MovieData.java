@@ -1,0 +1,305 @@
+package com.example.Project3;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MovieData {
+
+
+    List<Map<String,?>> moviesList;
+
+    public List<Map<String, ?>> getMoviesList() {
+        return moviesList;
+    }
+
+    public int getSize(){
+        return moviesList.size();
+    }
+
+    public HashMap getItem(int i){
+        if (i >=0 && i < moviesList.size()){
+            return (HashMap) moviesList.get(i);
+        } else return null;
+    }
+
+    public MovieData(){
+
+
+        String description;
+		String length;
+		String year;
+		double rating;
+		String director;
+		String stars;
+		String url;
+        moviesList = new ArrayList<Map<String,?>>();
+        //#1-10
+		year = "2010";
+		length = "108 min";
+		rating = 6.5;
+		director = "Tim Burton" ;
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/alice.jpg?alt=media&token=25bc8acd-3dab-4c33-9a91-05059ab92e89";
+		stars = "Mia Wasikowska, Johnny Depp, Helena Bonham Carter";
+		description = "Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror.";
+		moviesList.add(createMovie("Alice in Wonderland", R.drawable.alice, description, year, length, rating, director, stars, url));
+		year = "2009";
+		length = "162 min";
+		rating = 7.9;
+		director = "Cameron" ;
+		stars = "Sam Worthington, Zoe Saldana, Sigourney Weaver";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/avatar.jpg?alt=media&token=3d612a87-a8bd-4f23-9bea-6cecea50e695";
+        description = "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.";
+		moviesList.add(createMovie("Avatar", R.drawable.avatar, description, year, length, rating, director, stars, url));
+		year = "2012";
+		length = "143 min";
+		rating = 8.2;
+		director = "Joss Whedon" ;
+		stars = "Robert Downey Jr., Chris Evans, Scarlett Johansson";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/avengers.jpg?alt=media&token=0a44b883-ec70-4081-8d8d-3099d6307df4";
+		description = "Nick Fury of S.H.I.E.L.D. assembles a team of superheroes to save the Movie from Loki and his army.";
+        moviesList.add(createMovie("Avengers", R.drawable.avengers, description, year, length, rating, director, stars, url));
+		year = "2008";
+		length = "152 min";
+		rating = 9.0;
+		director = "Christopher Nolan" ;
+		stars = "Christian Bale, Heath Ledger, Aaron Eckhart";
+		url = "https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/dark_knight.jpg?alt=media&token=7f3cdb58-0d4a-4dd6-8106-c898e757feb0";
+		description = "When Batman, Gordon and Harvey Dent launch an assault on the mob, they let the clown out of the box, the Joker, bent on turning Gotham on itself and bringing any heroes down to his level.";
+        moviesList.add(createMovie("Dark Knight", R.drawable.dark_knight_rises, description, year, length, rating, director, stars, url));
+		year = "2012";
+		length = "165 min";
+		rating = 8.6;
+		director = "Christopher Nolan" ;
+		stars = "Christian Bale, Tom Hardy, Anne Hathaway";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/dark_knight_rises.jpg?alt=media&token=bbff6a5e-8f56-4ff0-9819-1b9924f13d33";
+		description = "Eight years after the Joker's reign of anarchy, the Dark Knight must return to defend Gotham City against the enigmatic jewel thief Catwoman and the ruthless mercenary Bane as the city teeters on the brink of complete annihilation.";
+		moviesList.add(createMovie("Dark Knight Rises", R.drawable.dark_knight, description, year, length, rating, director, stars, url));
+		year = "2013";
+		length = "98 min";
+		rating = 7.6;
+		director = "Pierre Coffin, Chris Renaud" ;
+		stars = "Steve Carell, Kristen Wiig, Benjamin Bratt";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/despicable2.jpg?alt=media&token=a927cb31-cebe-4d73-b263-c8773c3eccb3";
+		description = "Gru is recruited by the Anti-Villain League to help deal with a powerful new super criminal.";
+		moviesList.add(createMovie("Despicable Me 2", R.drawable.despicable2, description, year, length, rating, director, stars, url));
+		year = "1982";
+		length = "115 min";
+		rating = 7.9;
+		director = "Steven Spielberg" ;
+		stars = "Henry Thomas, Drew Barrymore, Peter Coyote";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/et.jpg?alt=media&token=d3a98f68-657f-4fdf-933c-b910efc97904";
+		description = "A troubled child summons the courage to help a friendly alien escape Earth and return to his home-world.";
+		moviesList.add(createMovie("ET the Extra-Terrestrial", R.drawable.et, description, year, length, rating, director, stars, url));
+		year = "2003";
+		length = "100 min";
+		rating = 8.2;
+		director = "Andrew Stanton, Lee Unkrich" ;
+		stars = "Albert Brooks, Ellen DeGeneres, Alexander Gould ";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/nemo.jpg?alt=media&token=165a5f99-6b6e-4b76-a45b-337b3aeb79f5";
+		description = "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.";
+		moviesList.add(createMovie("Finding Nemo", R.drawable.nemo, description, year, length, rating, director, stars, url));
+		year = "1994";
+		length = "145 min";
+		rating = 8.8;
+		director = "Robert Zemeckis" ;
+		stars = "Tom Hanks, Robin Wright, Gary Sinise";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/forrest_gump.jpg?alt=media&token=eb077b68-2436-42e4-acd6-ff97aefb8e95";
+		description = "Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him.";
+		moviesList.add(createMovie("Forrest Gump", R.drawable.forrest_gump, description, year, length, rating, director, stars, url));
+		year = "2013";
+		length = "102 min";
+		rating = 7.9;
+		director = "Chris Buck, Jennifer Lee" ;
+		stars = "Kristen Bell, Idina Menzel, Jonathan Groff";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/frozen.jpg?alt=media&token=f7732c45-4477-49c2-b745-5d5a2016f78d";
+		description = "Fearless optimist Anna teams up with Kristoff in an epic journey, encountering Everest-like conditions, and a hilarious snowman named Olaf in a race to find Anna's sister Elsa, whose icy powers have trapped the kingdom in eternal winter.";
+        moviesList.add(createMovie("Frozen", R.drawable.frozen, description, year, length, rating, director, stars, url));
+		year = "2011";
+		length = "130 min";
+		rating = 8.1;
+		director = "David Yates" ;
+		stars = "Daniel Radcliffe, Emma Watson, Rupert Grint";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/harry2.jpg?alt=media&token=29bb48af-728d-4388-a45a-e692e12a226c";
+		description = "Harry, Ron and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.";
+        moviesList.add(createMovie("Harry Potter and the Deathly Hallows: Part 2", R.drawable.harry2, description, year, length, rating, director, stars, url));
+		year = "2012";
+		length = "142 min";
+		rating = 7.3;
+		director = "Gary Ross" ;
+		stars = "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/hunger_games.jpg?alt=media&token=a27613aa-22b5-49a9-a76d-dd18767b4fca";
+		description = "Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games, a televised fight to the death in which two teenagers from each of the twelve Districts of Panem are chosen at random to compete.";
+		moviesList.add(createMovie("Hunger Games", R.drawable.hunger_games1, description, year, length, rating, director, stars, url));
+		year = "2013";
+		length = "146 min";
+		rating = 7.8;
+		director = "Francis Lawrence" ;
+		stars = "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/hunger_games1.jpg?alt=media&token=d3c69fa6-d42d-4be5-9a60-a28cb92626aa";
+		description = "Katniss Everdeen and Peeta Mellark become targets of the Capitol after their victory in the 74th Hunger Games sparks a rebellion in the Districts of Panem.";
+		moviesList.add(createMovie("Hunger Games: Catching Fire", R.drawable.hunger_games, description, year, length, rating, director, stars, url));
+		year = "2013";
+		length = "130 min";
+		rating = 7.4;
+		director = "Shane Black" ;
+		stars = "Robert Downey Jr., Guy Pearce, Gwyneth Paltrow";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/ironman3.jpg?alt=media&token=8d1012a6-aa58-4c77-9833-d38773d0a39a";
+		description = "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.";
+		moviesList.add(createMovie("Iron Man 3", R.drawable.ironman3, description, year, length, rating, director, stars, url));
+		year = "1993";
+		length = "127 min";
+		rating = 8.0;
+		director = "Steven Spielberg" ;
+		stars = "Sam Neill, Laura Dern, Jeff Goldblum";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/jurassicpark.jpg?alt=media&token=8892cbf9-68e0-4542-9ce9-0975bd4041eb";
+		description = "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.";
+		moviesList.add(createMovie("Jurassic Park", R.drawable.jurassicpark, description, year, length, rating, director, stars, url));
+		year = "1994";
+		length = "89 min";
+		rating = 8.5;
+		director = "Roger Allers, Rob Minkoff" ;
+		stars = "Matthew Broderick, Jeremy Irons, James Earl Jones";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/lion.jpg?alt=media&token=3cd1e67e-3b35-4d21-8207-b2d3cf32f820";
+		description = "Lion cub and future king Simba searches for his identity. His eagerness to please others and penchant for testing his boundaries sometimes gets him into trouble.";
+		moviesList.add(createMovie("Lion King", R.drawable.lion, description, year, length, rating, director, stars, url));
+		year = "2006";
+		length = "151 min";
+		rating = 7.3;
+		director = "Gore VerbinonItemClickski" ;
+		stars = "Johnny Depp, Orlando Bloom, Keira Knightley";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/pirates.jpg?alt=media&token=26151c8e-47a9-4701-8709-4ef13356ff29";
+		description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.";
+		moviesList.add(createMovie("Pirates of the Caribbean: Dead Man's Chest", R.drawable.pirates, description, year, length, rating, director, stars, url));
+		year = "2003";
+		length = "201 min";
+		rating = 8.9;
+		director = "Peter Jackson" ;
+		stars = "Elijah Wood, Viggo Mortensen, Ian McKellen";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/rings.jpg?alt=media&token=a30e7628-2c3a-49a7-96c0-eb7a8848b7d6";
+		description = "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.";
+        moviesList.add(createMovie("Lord of the Rings: The Return of the King", R.drawable.rings, description, year, length, rating, director, stars, url));
+		year = "2002";
+		length = "179 min";
+		rating = 8.8;
+		director = "Peter Jackson" ;
+		stars = "Elijah Wood, Ian McKellen, Viggo Mortensen";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/rings2.jpg?alt=media&token=2f74a229-21cd-4411-9b0e-20b123bb953c";
+		description = "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.";
+        moviesList.add(createMovie("Lord of the Rings: The Two Towers", R.drawable.rings2, description, year, length, rating, director, stars, url));
+		year = "2004";
+		length = "93 min";
+		rating = 7.3;
+		director = "Andrew Adamson, Kelly Asbury" ;
+		stars = "Mike Myers, Eddie Murphy, Cameron Diaz";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/shrek2.jpg?alt=media&token=a794ee43-c62b-415e-9c33-06a921e2ff96";
+		description = "Princess Fiona's parents invite her and Shrek to dinner to celebrate her marriage. If only they knew the newlyweds were both ogres.";
+		moviesList.add(createMovie("Shrek 2", R.drawable.shrek2, description, year, length, rating, director, stars, url));
+		year = "2002";
+		length = "121 min";
+		rating = 7.3;
+		director = "Sam Raimi" ;
+		stars = "Tobey Maguire, Kirsten Dunst, Willem Dafoe";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/spiderman.jpg?alt=media&token=404d3c0c-6e02-4cdd-a109-fe226a3b0135";
+		description = "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.";
+		moviesList.add(createMovie("Spider-Man", R.drawable.spiderman, description, year, length, rating, director, stars, url));
+		year = "2004";
+		length = "127 min";
+		rating = 7.4;
+		director = "Sam Raimi" ;
+		stars = "Tobey Maguire, Kirsten Dunst, Alfred Molina";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/spiderman2.jpg?alt=media&token=2e705e54-b0f4-4737-a685-dd56d092529a";
+		description = "Peter Parker is beset with troubles in his failing personal life as he battles a brilliant scientist named Doctor Otto Octavius.";
+		moviesList.add(createMovie("Spider-Man 2", R.drawable.spiderman2, description, year, length, rating, director, stars, url));
+		year = "2007";
+		length = "139 min";
+		rating = 6.3;
+		director = "Sam Raimi" ;
+		stars = "Tobey Maguire, Kirsten Dunst, Topher Grace";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/spiderman3.jpg?alt=media&token=ce2e5416-f65f-4895-849c-51021e81519e";
+		description = "A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.";
+        moviesList.add(createMovie("Spider-Man 3", R.drawable.spiderman3, description, year, length, rating, director, stars, url));
+		year = "1999";
+		length = "136 min";
+		rating = 6.6;
+		director = "George Lucas" ;
+		stars = "Ewan McGregor, Liam Neeson, Natalie Portman";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/star_wars1.jpg?alt=media&token=6f44bd04-94c7-434e-8cb7-aa58fc2ba1ab";
+		description = "Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to reclaim their old glory.";
+		moviesList.add(createMovie("Star Wars I", R.drawable.star_wars1, description, year, length, rating, director, stars, url));
+		year = "2005";
+		length = "140 min";
+		rating = 7.7;
+		director = "George Lucas" ;
+		stars = "Hayden Christensen, Natalie Portman, Ewan McGregor";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/star_wars3.jpg?alt=media&token=3e190f63-41bd-4d2f-a736-e60452b814af";
+		description = "After three years of fighting in the Clone Wars, Anakin Skywalker falls prey to the Sith Lord's lies and makes an enemy of the Jedi and those he loves, concluding his journey to the Dark Side.";
+		moviesList.add(createMovie("Star Wars III", R.drawable.star_wars3, description, year, length, rating, director, stars, url));
+		year = "1977";
+		length = "121 min";
+		rating = 8.7;
+		director = "George Lucas" ;
+		stars = "Mark Hamill, Harrison Ford, Carrie Fisher";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/star_wars4.jpg?alt=media&token=e386dad0-d55c-4a8e-bd08-f4aefe51b492";
+		description = "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.";
+		moviesList.add(createMovie("Star Wars IV ", R.drawable.star_wars4, description, year, length, rating, director, stars, url));
+		year = "1997";
+		length = "194 min";
+		rating = 7.7;
+		director = "James Cameron" ;
+		stars = "Leonardo DiCaprio, Kate Winslet, Billy Zane";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/titanic.jpg?alt=media&token=91fae5a5-b61a-4b2a-990f-472ffc19f493";
+		description = "Seventeen-year-old aristocrat, expecting to be married to a rich claimant by her mother, falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.";
+		moviesList.add(createMovie("Titanic", R.drawable.titanic, description, year, length, rating, director, stars, url));
+		year = "2010";
+		length = "103 min";
+		rating = 8.4;
+		director = "Lee Unkrich" ;
+		stars = "Tom Hanks, Tim Allen, Joan Cusack";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/toy3.jpg?alt=media&token=6f541d9e-da2b-4b2d-8017-ca486f7be95e";
+		description = "The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home.";
+		moviesList.add(createMovie("Toy Story 3", R.drawable.toy3, description, year, length, rating, director, stars, url));
+		year = "2009";
+		length = "150 min";
+		rating = 6.0;
+		director = "Michael Bay" ;
+		stars = "Shia LaBeouf, Megan Fox, Josh Duhamel";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/transformers.jpg?alt=media&token=fa6c7bc9-e8b0-45bd-8a7e-5c30356cd1c3";
+		description = "Sam Witwicky leaves the Autobots behind for a normal life. But when his mind is filled with cryptic symbols, the Decepticons target him and he is dragged back into the Transformers' war.";
+		moviesList.add(createMovie("Transformers: Revenge of the Fallen", R.drawable.transformers, description, year, length, rating, director, stars, url));
+		year = "2011";
+		length = "154 min";
+		rating = 6.4;
+		director = "Michael Bay" ;
+		stars = "Shia LaBeouf, Rosie Huntington-Whiteley, Tyrese Gibson";
+		url ="https://firebasestorage.googleapis.com/v0/b/project3-53110.appspot.com/o/transformers2.jpg?alt=media&token=74babd4f-fe62-4431-aa5e-eef2d2f84e88";
+		description = "The Autobots learn of a Cybertronian spacecraft hidden on the moon, and race against the Decepticons to reach it and to learn its secrets.";
+		moviesList.add(createMovie("Transformers: Dark of the Moon", R.drawable.transformers2, description, year, length, rating, director, stars, url));
+    }
+
+
+    private HashMap createMovie(String name, int image, String description, String year,
+                                String length, double rating, String director, String stars, String url) {
+        HashMap movie = new HashMap();
+        movie.put("image",image);
+        movie.put("name", name);
+        movie.put("description", description);
+		movie.put("year", year);
+		movie.put("length",length);
+		movie.put("rating",rating);
+		movie.put("director",director);
+		movie.put("stars",stars);
+		movie.put("url",url);
+		movie.put("selection",false);
+        return movie;
+    }
+}

@@ -78,6 +78,7 @@ public class MyRecyclerAdapter
                 allPostsRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                        System.out.println(postsList);
                         PostModel userModel=new PostModel(dataSnapshot.child("uid").getValue().toString(),
                                 dataSnapshot.child("description").getValue().toString(),
                                 dataSnapshot.child("url").getValue().toString(),
