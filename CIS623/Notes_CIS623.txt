@@ -1,0 +1,20 @@
+Week 1 1/13/2021
+
+Propositional logic does NOT have quantifiers (e.g., for all)
+  Prediate logic can have qualifiers
+
+wff does not necessarily mean valid (valid = true under all condiitons)
+  for example, p: if p is assigned to false, it cannot be true
+
+wff: well-formed formula
+BNF: Backus-Naur Form
+
+Unary operators bind most tightly (negation)
+  and binds tighter than or, which binds tighter than implies
+  and/or are left associative, implication is right associative
+
+To start: use premise, axiom, or assumption
+
+wff can be: satisfiable, unsatisfiable, valid
+
+Logical consequene: just use a truth table
