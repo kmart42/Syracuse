@@ -2,7 +2,7 @@
 **
 **  File Name     : Main.cpp
 **  Creation Date : 01-29-2021
-**  Last Modified : Fri 29 Jan 2021 05:15:09 PM PST
+**  Last Modified : Sat 30 Jan 2021 12:12:47 PM PST
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Homework      : HW #1 - Exercise 3.10 p100
@@ -19,7 +19,7 @@ using std::cout;
 using std::endl;
 
 int main() {
-  // declare variables before user interaction
+  // intialize variables before user interaction
   string description;
   string number;
   int price;
@@ -36,14 +36,15 @@ int main() {
   cout << "Enter item price, press enter ";
   cin >> price;
 
-  // calculate the invoice total
-  // initialize the Invoice getInvoiceAmount
+  // initialize the invoice getInvoiceAmount
+  // set variables of class based on user details
   Invoice invoice;
   invoice.setDescription(description);
   invoice.setNumber(number);
   invoice.setPrice(price);
   invoice.setQuantity(quantity);
 
+  // calcualte total invoice, print a message to user
   total = invoice.getInvoiceAmount();
   cout << "Invoice total for " << invoice.getQuantity() << " "
        << invoice.getDescription() << "s (item number " << invoice.getNumber()
