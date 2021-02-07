@@ -2,7 +2,7 @@
 **
 **  File Name     : Main.cpp
 **  Creation Date : 01-29-2021
-**  Last Modified : Sat 30 Jan 2021 12:12:47 PM PST
+**  Last Modified : Sun 07 Feb 2021 02:17:01 PM PST
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Homework      : HW #1 - Exercise 3.10 p100
@@ -25,6 +25,15 @@ int main() {
   int price;
   int quantity;
   int total;
+
+  // welcome message
+  for (int i = 0; i<9; i++){
+    cout << "*~*";
+  }
+  cout << "\nW E L C O M E\n";
+  for (int j = 0;ji<9; i++){
+    cout << "*~*";
+  }
 
   // prompt user for input details
   cout << "Enter item description, press enter ";
