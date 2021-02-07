@@ -2,12 +2,12 @@
 **
 **  File Name     : Main.cpp
 **  Creation Date : 01-29-2021
-**  Last Modified : Sun 07 Feb 2021 02:17:01 PM PST
+**  Last Modified : Sun 07 Feb 2021 06:35:54 AM PST
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Homework      : HW #1 - Exercise 3.10 p100
 **  Description   : Demonstrate encapsulation with simple price and quantity
-example using hardware store inventory
+*example using hardware store inventory
 **  Organization  : Syracuse University
 ***==============================================================*/
 
@@ -27,22 +27,24 @@ int main() {
   int total;
 
   // welcome message
-  for (int i = 0; i<9; i++){
+  for (int i = 0; i < 7; i++) {
     cout << "*~*";
   }
   cout << "\nW E L C O M E\n";
-  for (int j = 0;ji<9; i++){
+  for (int j = 0; j < 7; j++) {
     cout << "*~*";
   }
+  cout << "\nTo calculate total invoice amount, enter each relevant value and "
+          "press Enter\n";
 
   // prompt user for input details
-  cout << "Enter item description, press enter ";
+  cout << "Enter item description: ";
   cin >> description;
-  cout << "Enter part number, press enter ";
+  cout << "Enter part number: ";
   cin >> number;
-  cout << "Enter item quantity, press enter ";
+  cout << "Enter item quantity: ";
   cin >> quantity;
-  cout << "Enter item price, press enter ";
+  cout << "Enter item price: ";
   cin >> price;
 
   // initialize the invoice getInvoiceAmount
