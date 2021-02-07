@@ -1,3 +1,16 @@
+/*===============================================================*\
+**
+**  File Name     : Credit.h 
+**  Creation Date : 02-4-2021
+**  Last Modified : Fri 4 Feb 2021 12:19:52 PM PST
+**  Compiler      : g++ -Wall -O2 -std=c++17
+**  Author        : Kevin Martin, kmarti44@syr.edu
+**  Homework      : HW #2 - Excercise 4.14 p150
+**  Description   : Header file/definitions for Credit.cpp
+**  Organization  : Syracuse University
+***==============================================================*/
+
+
 #include <string.h>
 
 #include <iostream>

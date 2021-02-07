@@ -28,8 +28,10 @@ int main() {
 
     // welcome message
     cout << "*~*~*~ Welcome! *~*~*~";
-    cout << "\nShall we extend some credit? Let's find out!\n";
-    cout << "For each item, enter the relevant value and press Enter\n";
+    cout << "\nShall we extend some credit?";
+    cout << "\nOr did the customer take advantage of our good nature?";
+    cout << "\nLet's find out!";
+    cout << "\nFor each item, enter the relevant value and press Enter\n";
 
     while (account != -1) {
         // prompt user for input details
@@ -60,9 +62,13 @@ int main() {
         newBalance = credit.getNewBalance();
         cout << "New balance is ";
         cout << newBalance;
+        cout << "\n";
+
+        // check to see if the credit limit has been reached
+        // if so, print account details and indicator message
         if (newBalance > limit) {
 
-            cout << "\nAccount: ";
+            cout << "Account: ";
             cout << credit.getAccount();
             cout << "\nCredit limit: ";
             cout << credit.getLimit();

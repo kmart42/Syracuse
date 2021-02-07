@@ -15,9 +15,7 @@
 // create constructor and setters for private variables
 Credit::Credit() {}
 void Credit::setAccount(int acctNumber) { account = acctNumber; }
-void Credit::setBalance(float currBalance) {
-  balance = currBalance;
-}
+void Credit::setBalance(float currBalance) { balance = currBalance;}
 void Credit::setCharges(float newCharges) { charges = newCharges; }
 void Credit::setCredit(float newCredit) { credit = newCredit; }
 void Credit::setLimit(float newLimit) { limit = newLimit; }
