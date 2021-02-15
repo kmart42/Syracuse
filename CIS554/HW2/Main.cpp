@@ -33,13 +33,20 @@ int main() {
     cout << "\nLet's find out!";
     cout << "\nFor each item, enter the relevant value and press Enter\n";
 
+    // begin main loop
+    // update details each time loop starts over, until user enters -1
     while (account != -1) {
+
         // prompt user for input details
         cout << "\nEnter account number (or -1 to quit): ";
+        
+        // check to see if user entered -1 to terminate the program
         cin >> account;
         if (account == -1) {
             break;
         }
+
+        // if user entered any other number, continue gathering input details
         cout << "Enter beginning balance: ";
         cin >> balance;
         cout << "Enter total charges: ";
@@ -59,6 +66,7 @@ int main() {
         credit.setLimit(limit);
 
         // calcualte total credit, print a message to user
+        // this will be done regardless if user exceeded credit limit
         newBalance = credit.getNewBalance();
         cout << "New balance is ";
         cout << newBalance;

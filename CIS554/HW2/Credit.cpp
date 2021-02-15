@@ -12,15 +12,17 @@
 
 #include "Credit.h"
 
-// create constructor and setters for private variables
+// initialize constructor 
 Credit::Credit() {}
+
+// setters for private variables, updated by user input
 void Credit::setAccount(int acctNumber) { account = acctNumber; }
 void Credit::setBalance(float currBalance) { balance = currBalance;}
 void Credit::setCharges(float newCharges) { charges = newCharges; }
 void Credit::setCredit(float newCredit) { credit = newCredit; }
 void Credit::setLimit(float newLimit) { limit = newLimit; }
 
-// getters for private variables
+// getters for private variables for program output
 int Credit::getAccount() { return account; }
 float Credit::getBalance() { return balance; }
 float Credit::getCharges() { return charges; }

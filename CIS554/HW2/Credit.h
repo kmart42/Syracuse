@@ -17,15 +17,17 @@
 using std::string;
 class Credit {
  public:
-  // create constructor and setters
+  // create constructor for class
   explicit Credit();
+
+  // create setters for user input
   void setAccount(int);
   void setBalance(float);
   void setCharges(float);
   void setCredit(float);
   void setLimit(float);
 
-  // create getters
+  // create getters for program output
   int getAccount();
   float getBalance();
   float getCharges();
@@ -42,5 +44,7 @@ class Credit {
   float charges;
   float credit;
   float limit;
+
+  // newBalance used to check if user went over their limit
   float newBalance;
 };
