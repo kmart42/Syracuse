@@ -16,21 +16,17 @@
 
 #include <array>
 #include <iostream>
-// using std::array;
 using std::string;
 class CAI {
  public:
   // create constructor for class
   explicit CAI();
 
-  // create setter for user input
+  // create setter for user's choice of program
   void setProgram(int);
 
   // set difficulty, used for random number generation as well
   void setDifficulty(int);
-
-  // create getter for program output
-  int getNumber(int);
 
   // get response from list with index from random
   string getResponse(int, int);
@@ -53,15 +49,13 @@ class CAI {
   // set result based on user input
   void setResult(double);
 
-  // keep track of rolling accuracy
-
-
-  // array to store five numbers, position integer to keep track of index
  private:
+  // all available responses, to be accessed by a random index number
   string posResponses[4] = {"Very good!", "Excellent!", "Nice work!",
                             "Keep up the good work!"};
   string negResponses[4] = {"No. Please try again.", "Wrong. Try once more.",
                             "Don't give up!", "No. Keep trying"};
+  // private variables
   int program;
   double result;
   double response;

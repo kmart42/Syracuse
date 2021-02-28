@@ -2,7 +2,7 @@
 **
 **  File Name     : CAI.cpp
 **  Creation Date : 02-21-2021
-**  Last Modified : Sun 21 Feb 2021 10:53:23 PM PST
+**  Last Modified : Mon 22 Feb 2021 04:44:41 PM PST
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Homework      : HW #4 - Excercise 6.57 - 6.61 p281
@@ -13,19 +13,18 @@
 #include "CAI.h"
 
 #include <array>
-// using std::array;
 using std::cout;
 
 // initialize constructor
 CAI::CAI() {}
 
-// set difficulty
+// set difficulty, based on user input
 void CAI::setDifficulty(int diff) { difficulty = diff; };
 
-// set program
+// set program choice, based on user input
 void CAI::setProgram(int prog) { program = prog; };
 
-// get a random number with a designated range
+// get a random number with a designated range, for different difficulties
 double CAI::randNum() {
   if (difficulty == 1) {
     return rand() % 4 + 1;
@@ -36,21 +35,13 @@ double CAI::randNum() {
     return rand() % 99;
 }
 
-string CAI::getResponse(int index, int array) {
-  if (array == 1) {
-    return CAI::posResponses[index];
-  } else {
-    return CAI::negResponses[index];
-  }
-}
-
-// getter to return the value at the given position in array
-// int CAI::getNumber(int position) { return inputs[position]; }
-
 // generate the main math problem
 void CAI::getProblem() {
+  // first get the two numbers to be operated on
   rand1 = randNum();
   rand2 = randNum();
+
+  // operation depends on user input
   cout << "How much is ";
   if (program == 1) {
     cout << rand1 << " plus " << rand2 << "?\n";
@@ -94,8 +85,10 @@ bool CAI::checkAnswer() {
 
 // after 10 loops, check overall accuracy
 void CAI::checkAccuracy() {
-  accuracy = correct / 5;
-  cout << "\nYou answered " << correct << " correctly out of 5\n";
+  accuracy = correct / 10;
+
+  // print a positive or negarive response, based on accuracy
+  cout << "\nYou answered " << correct << " correctly out of 10\n";
   if (accuracy < .75)
     cout << "Please ask your teacher for extra help.\n";
   else
