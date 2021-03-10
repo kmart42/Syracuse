@@ -22,6 +22,11 @@ class SavingsAccount {
   // public function to modify annual interest rate
   static void modifyInterestRate(double);
 
+  // validation for both balances and interest rates
+  bool validBal(double);
+  bool validInt(double);
+  bool validIntUpdate(double, double);
+
   // annual interest rate to be charged to each customer
   static double annualInterestRate;
 
