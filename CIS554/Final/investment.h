@@ -16,6 +16,9 @@ using std::string;
 
 class Investment {
  public:
+  // empty constructor
+  explicit Investment();
+
   // string for name, double for price
   // only two characteristics all investments share
   Investment(const string &, const double &);
@@ -31,6 +34,9 @@ class Investment {
   // virtual functions for calculating price and printing information
   // virtual double priceCalc() const = 0;
   virtual void print() const;
+
+  // convert user choice (string) to vector index (int)
+  int convertChoice(string);
 
  private:
   // private data members

@@ -2,7 +2,7 @@
 **
 **  File Name     : memestock.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Tue 16 Mar 2021 10:01:28 PM PDT
+**  Last Modified : Wed 17 Mar 2021 06:38:23 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -32,7 +32,7 @@ int MemeStock::getMultiplier() const { return multipler; }
 
 // modifiy base print function
 void MemeStock::print() const {
-  cout << "\nReady to crank it up to 11?? Let's go!";
+  cout << "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*\n";
   // call stock print (not base, want to see exchange)
   Stock::print();
 }
