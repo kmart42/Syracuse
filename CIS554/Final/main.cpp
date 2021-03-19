@@ -2,7 +2,7 @@
 **
 **  File Name     : main.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Wed 17 Mar 2021 10:41:19 PM PDT
+**  Last Modified : Thu 18 Mar 2021 10:27:23 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -33,14 +33,20 @@ int main() {
   int bonds = 3;
   int coins = 3;
   int memes = 3;
-  string ent = "";
+  int control = 0;
   double user_balance = 0;
+  double start_balance = 0;
   string choice1 = "";
+  double shares1 = 0;
   int inv1 = 0;
   string choice2 = "";
+  double shares2 = 0;
   int inv2 = 0;
   string choice3 = "";
+  double shares3 = 0;
   int inv3 = 0;
+  bool balCheck = false;
+  string profChoice = " ";
 
   // format output stream
   cout << fixed << setprecision(2);
@@ -85,7 +91,7 @@ int main() {
       << "| | | \\ \\_/ / |_/ /_| |_| |\\  || |\\  \\ \\_/ /\\ \\_/ / |/ / \n"
       << "\\_| |_/\\___/\\____/ \\___/\\_| \\_/\\_| \\_|\\___/  \\___/|___/ \n";
 
-  cout << "\nWelcome! First, press enter to see how the markets are doing\n";
+  cout << "\nWelcome! Let's see how the markets are doing\n";
   cout << "\n\nCOMMON STOCK:\n";
 
   // print only the stocks first
@@ -120,35 +126,208 @@ int main() {
     investments[i]->print();
   }
 
+  // print professor choice
+  cout << "\nMYSTERY INVESTMENT:\n";
+  if (profChoice == " ") {
+    cout << "There's nothing here! Too bad..";
+  } else {
+    investments[12]->print();
+  }
+
   // get user starting balance
   cout << "\n\nWhat a day! Enter the amount you would like to invest: $";
   cin >> user_balance;
+  start_balance = user_balance;
+  while (user_balance <= 0) {
+    cout << "\nDon't be so negative! You'll have PLENTY Of time to lose all "
+            "your money!";
+    cout << "\nEnter a positivie starting balance: $";
+    cin >> user_balance;
+  }
   cout << "\nGreat! What would you like to buy?";
   cout << "\nChoose three investments. Totally up to you, but remeber, "
-          "diversification is key!";
-
-  // promt user for three choices, and convert strings to vector indices
-  cout << "\nEnter first pick: ";
-  cin >> choice1;
-  cout << "Enter second pick: ";
-  cin >> choice2;
-  cout << "Enter third pick: ";
-  cin >> choice3;
+          "diversification is key!\n";
 
   // intialize empty investment
   Investment inv;
 
-  inv1 = inv.convertChoice(choice1);
-  inv2 = inv.convertChoice(choice2);
-  inv3 = inv.convertChoice(choice3);
+  // promt user for three choices, and convert strings to vector indices
+  // enter while loops if funds are insufficient
+  cout << "\nEnter first pick: ";
+  cin >> choice1;
+  inv1 = inv.convertChoice(profChoice, choice1);
+  while (inv1 == -1) {
+    cout << "\nInvalid entry, please enter a listed ticker: ";
+    cin >> choice1;
+    inv1 = inv.convertChoice(profChoice, choice1);
+  }
+  cout << "Number of shares/bonds/coins: ";
+  cin >> shares1;
+  double tmp1 = investments[inv1]->getInvestmentPrice() * shares1;
+  balCheck = inv.validPurchase(tmp1, user_balance);
+  while (not balCheck) {
+    cout << "\nEnter first pick: ";
+    cin >> choice1;
+    inv1 = inv.convertChoice(profChoice, choice1);
+    while (inv1 == -1) {
+      cout << "\nInvalid entry, please enter a listed ticker: ";
+      cin >> choice1;
+      inv1 = inv.convertChoice(profChoice, choice1);
+    }
+    cout << "Number of shares/bonds/coins: ";
+    cin >> shares1;
+    tmp1 = investments[inv1]->getInvestmentPrice() * shares1;
+    balCheck = inv.validPurchase(tmp1, user_balance);
+  }
 
-  cout << "\nchoice 1 " << inv1;
-  cout << "\nchoice 2 " << inv2;
-  cout << "\nchoice 3 " << inv3;
-  cout << "\n";
+  // update user balance for purchase
+  user_balance = user_balance - tmp1;
+  cout << "\nCurrent balance is: " << user_balance;
 
-  // for (auto i : investments) {
-  // i->print();
-  //}
+  // second investment
+  cout << "\nEnter second pick: ";
+  cin >> choice2;
+  inv2 = inv.convertChoice(profChoice, choice2);
+  while (inv2 == -1) {
+    cout << "\nInvalid entry, please enter a listed ticker: ";
+    cin >> choice2;
+    inv2 = inv.convertChoice(profChoice, choice2);
+  }
+  cout << "Number of shares/bonds/coins: ";
+  cin >> shares2;
+  double tmp2 = investments[inv2]->getInvestmentPrice() * shares2;
+  balCheck = inv.validPurchase(tmp2, user_balance);
+  while (not balCheck) {
+    cout << "\nEnter second pick: ";
+    cin >> choice2;
+    inv2 = inv.convertChoice(profChoice, choice2);
+    while (inv2 == -1) {
+      cout << "\nInvalid entry, please enter a listed ticker: ";
+      cin >> choice2;
+      inv2 = inv.convertChoice(profChoice, choice2);
+    }
+    cout << "Number of shares/bonds/coins: ";
+    cin >> shares2;
+    tmp2 = investments[inv2]->getInvestmentPrice() * shares2;
+    balCheck = inv.validPurchase(tmp2, user_balance);
+  }
+
+  // update user balance for purchase
+  user_balance = user_balance - tmp2;
+  cout << "\nCurrent balance is: " << user_balance;
+
+  // third investment
+  cout << "\nEnter third pick: ";
+  cin >> choice3;
+  inv3 = inv.convertChoice(profChoice, choice3);
+  while (inv3 == -1) {
+    cout << "\nInvalid entry, please enter a listed ticker: ";
+    cin >> choice3;
+    inv3 = inv.convertChoice(profChoice, choice3);
+  }
+  cout << "Number of shares/bonds/coins: ";
+  cin >> shares3;
+  double tmp3 = investments[inv3]->getInvestmentPrice() * shares3;
+  balCheck = inv.validPurchase(tmp3, user_balance);
+  while (not balCheck) {
+    cout << "\nEnter third pick: ";
+    cin >> choice3;
+    inv3 = inv.convertChoice(profChoice, choice3);
+    while (inv3 == -1) {
+      cout << "\nInvalid entry, please enter a listed ticker: ";
+      cin >> choice3;
+      inv3 = inv.convertChoice(profChoice, choice3);
+    }
+    cout << "Number of shares/bonds/coins: ";
+    cin >> shares3;
+    tmp3 = investments[inv3]->getInvestmentPrice() * shares3;
+    balCheck = inv.validPurchase(tmp3, user_balance);
+  }
+
+  // update user balance for purchase
+  user_balance = user_balance - tmp3;
+  cout << "\nCurrent balance is: " << user_balance;
+  cout << "\n\nHere's your portoflio:";
+  cout << "\n"
+       << shares1 << " shares of " << investments[inv1]->getInvestmentName()
+       << " at $" << investments[inv1]->getInvestmentPrice();
+  cout << "\n"
+       << shares2 << " shares of " << investments[inv2]->getInvestmentName()
+       << " at $" << investments[inv2]->getInvestmentPrice();
+  cout << "\n"
+       << shares3 << " shares of " << investments[inv3]->getInvestmentName()
+       << " at $" << investments[inv3]->getInvestmentPrice();
+  cout << "\n\n";
+
+  // main while loop to watch price movements
+  while (control != -1) {
+    cout << "\nTime for a new day, updated prices:\n";
+
+    // update prices
+    // TODO  add meme stock multiplier
+    investments[inv1]->setInvestmentPrice(
+        investments[inv1]->getInvestmentPrice() +
+        (investments[inv1]->getInvestmentPrice() *
+        (rand()  %41 + (-20)) / 100.0 ));
+        //(((double)rand() / (RAND_MAX)) + 1));
+
+    investments[inv2]->setInvestmentPrice(
+        investments[inv2]->getInvestmentPrice() +
+        (investments[inv2]->getInvestmentPrice() *
+        (rand()  %41 + (-20)) / 100.0 ));
+        //(1 + ((double)rand() / (RAND_MAX)) + 1));
+    investments[inv3]->setInvestmentPrice(
+        investments[inv3]->getInvestmentPrice() +
+        (investments[inv3]->getInvestmentPrice() *
+        (rand()  %41 + (-20)) / 100.0 ));
+        //(1 + ((double)rand() / (RAND_MAX)) + 1));
+
+    // display new prices
+    investments[inv1]->print();
+    investments[inv2]->print();
+    investments[inv3]->print();
+
+    /*
+    cout << "\n"
+         << investments[inv1]->getInvestmentName() << " is now trading at $"
+         << investments[inv1]->getInvestmentPrice();
+    cout << "\n"
+         << investments[inv2]->getInvestmentName() << " is now trading at $"
+         << investments[inv2]->getInvestmentPrice();
+    cout << "\n"
+         << investments[inv3]->getInvestmentName() << " is now trading at $"
+         << investments[inv3]->getInvestmentPrice();
+
+*/
+    // recalculate investor balance
+    user_balance = (investments[inv1]->getInvestmentPrice() * shares1) +
+                   (investments[inv2]->getInvestmentPrice() * shares2) +
+                   (investments[inv3]->getInvestmentPrice() * shares3);
+
+    cout << "\nYour balance is now: $" << user_balance;
+
+    cout << "\n\nEnter 1 to keep going, enter -1 to tap out! ";
+    cin >> control;
+  }
+
+  // calculate final balance and performance
+  if (user_balance > start_balance) {
+    cout << "\nYour account had a gain of: "
+         << (user_balance - start_balance) / start_balance * 100;
+  } else if (user_balance < 0) {
+    cout << "\nOh no! You lost your shirt!! There was a margin call and, well, "
+            "it's not looking good..";
+    cout << "\nYou had a loss of : "
+         << (user_balance - start_balance) / start_balance * 100;
+  } else {
+    cout << "\nYour account had a loss of: "
+         << (user_balance - start_balance) / start_balance * 100;
+  }
+    cout << "%\n";
+
+    // for (auto i : investments) {
+    // i->print();
+    //}
+  
 }
 

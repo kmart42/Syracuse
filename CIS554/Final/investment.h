@@ -36,7 +36,10 @@ class Investment {
   virtual void print() const;
 
   // convert user choice (string) to vector index (int)
-  int convertChoice(string);
+  int convertChoice(string, string);
+
+  // validation that user has enough funds to buy investment
+  bool validPurchase(double, double);
 
  private:
   // private data members

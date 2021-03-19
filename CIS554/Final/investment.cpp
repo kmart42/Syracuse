@@ -2,7 +2,7 @@
 **
 **  File Name     : investment.cpp
 **  Creation Date : 03-15-2021
-**  Last Modified : Wed 17 Mar 2021 10:37:28 PM PDT
+**  Last Modified : Thu 18 Mar 2021 09:37:59 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Description   : Abstract base class Investment and member functions
 **  Author        : Kevin Martin, kmarti44@syr.edu
@@ -50,8 +50,19 @@ void Investment::print() const {
        << " at " << std::ctime(&time_out);
 }
 
+// check to see if user can actually make purchase
+bool Investment::validPurchase(double cost, double balance) {
+  if (cost > balance) {
+    cout << "\nYou do not have sufficient funds to amke that purchase";
+    cout << "\nEnter a different investment/shares";
+    return false;
+  } else {
+    return true;
+  }
+}
+
 // convert a user's input to vector index
-int Investment::convertChoice(string input) {
+int Investment::convertChoice(string prof, string input) {
   if (input == "TSLA" || input == "tsla") {
     return 0;
 
@@ -88,6 +99,10 @@ int Investment::convertChoice(string input) {
   } else if (input == "HTZGQ" || input == "htzgq") {
     return 11;
 
-  } else
+  } else if (input == prof) {
     return 12;
+
+  } else {
+    return -1;
+  }
 }
