@@ -29,7 +29,7 @@ class Investment {
 
   // getter and setter for price
   double getInvestmentPrice() const;
-  void setInvestmentPrice(const double &);
+  virtual void setInvestmentPrice(const double &);
 
   // virtual functions for calculating price and printing information
   // virtual double priceCalc() const = 0;

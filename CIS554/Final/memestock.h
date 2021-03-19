@@ -24,6 +24,10 @@ class MemeStock : public Stock {
   void setMultiplier(int);
   int getMultiplier() const;
 
+  // override base class price to add multiplier
+  void setInvestmentPrice( const double &);
+  double getInvestmentPrice() const;
+
   // oveerride base class print function
   virtual void print() const;
 

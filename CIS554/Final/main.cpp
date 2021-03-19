@@ -2,7 +2,7 @@
 **
 **  File Name     : main.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Thu 18 Mar 2021 10:27:23 PM PDT
+**  Last Modified : Fri 19 Mar 2021 11:43:32 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -36,6 +36,7 @@ int main() {
   int control = 0;
   double user_balance = 0;
   double start_balance = 0;
+  double cash = 0;
   string choice1 = "";
   double shares1 = 0;
   int inv1 = 0;
@@ -246,7 +247,10 @@ int main() {
 
   // update user balance for purchase
   user_balance = user_balance - tmp3;
-  cout << "\nCurrent balance is: " << user_balance;
+  cash = user_balance;
+  user_balance = start_balance - cash;
+  cout << "\nCurrent portfolio is: $" << user_balance;
+  cout << "\nCash balance is : $" << cash;
   cout << "\n\nHere's your portoflio:";
   cout << "\n"
        << shares1 << " shares of " << investments[inv1]->getInvestmentName()
@@ -264,7 +268,6 @@ int main() {
     cout << "\nTime for a new day, updated prices:\n";
 
     // update prices
-    // TODO  add meme stock multiplier
     investments[inv1]->setInvestmentPrice(
         investments[inv1]->getInvestmentPrice() +
         (investments[inv1]->getInvestmentPrice() *
@@ -304,11 +307,13 @@ int main() {
                    (investments[inv2]->getInvestmentPrice() * shares2) +
                    (investments[inv3]->getInvestmentPrice() * shares3);
 
-    cout << "\nYour balance is now: $" << user_balance;
+    cout << "\nYour total balance is now: $" << user_balance + cash;
 
     cout << "\n\nEnter 1 to keep going, enter -1 to tap out! ";
     cin >> control;
   }
+
+  user_balance = user_balance + cash;
 
   // calculate final balance and performance
   if (user_balance > start_balance) {

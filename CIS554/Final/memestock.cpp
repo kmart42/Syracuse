@@ -2,7 +2,7 @@
 **
 **  File Name     : memestock.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Wed 17 Mar 2021 06:38:23 PM PDT
+**  Last Modified : Fri 19 Mar 2021 11:41:48 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
@@ -11,7 +11,7 @@
 #include "memestock.h"
 
 #include <iostream>
-
+#include <time.h>
 #include "investment.h"
 using std::cout;
 
@@ -29,6 +29,19 @@ void MemeStock::setMultiplier(int mult) { multipler = mult; }
 
 // get multiplier back for computation
 int MemeStock::getMultiplier() const { return multipler; }
+
+void MemeStock::setInvestmentPrice(const double &price){
+  srand(time(0));
+  double tmp = (rand() % 10);
+  if(tmp == 0){
+    tmp = 0;
+  }else if (tmp >6){
+    tmp = 2;
+  }else{
+    tmp = 1;
+  }
+  Investment::setInvestmentPrice(tmp * price);
+}
 
 // modifiy base print function
 void MemeStock::print() const {
