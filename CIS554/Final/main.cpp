@@ -2,8 +2,12 @@
 **
 **  File Name     : main.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Fri 19 Mar 2021 11:43:32 AM PDT
+**  Last Modified : Fri 26 Mar 2021 02:07:50 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
+**  Description   : Investing game/app where user enters starting balance,
+**                  selects 3 investments, and then watches the prices
+**                  fluctuate randomly day over day. Ending balance and
+**                  performance metrics are displayed.
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
 ***==============================================================*/
@@ -28,12 +32,14 @@ using std::vector;
 
 int main() {
   // varibles for main
+  // dynamic iterators
   int itr = 0;
   int stocks = 3;
   int bonds = 3;
   int coins = 3;
   int memes = 3;
   int control = 0;
+  // user information
   double user_balance = 0;
   double start_balance = 0;
   double cash = 0;
@@ -47,6 +53,7 @@ int main() {
   double shares3 = 0;
   int inv3 = 0;
   bool balCheck = false;
+  // edit here for new addition
   string profChoice = " ";
 
   // format output stream
@@ -58,6 +65,8 @@ int main() {
   // initialize main vector that will display all available investments
   vector<Investment *> investments(13);
 
+  // create 12 investments, 3 of each type
+  // randomly generate prices/volumes based on real world basis
   investments[0] =
       new Stock("TSLA", rand() % 20 + 400.01, "NYSE", rand() % 10000 + 51000);
   investments[1] =
@@ -82,6 +91,7 @@ int main() {
       new MemeStock("AMC", rand() % 50 + 30, "NASDAQ", rand() % 500 + 5000, 1);
   investments[11] =
       new MemeStock("HTZGQ", rand() % 1 + 2.2, "NASDAQ", rand() % 200 + 800, 1);
+  // add 13th investment here
 
   // display welcome message
   cout
@@ -138,13 +148,13 @@ int main() {
   // get user starting balance
   cout << "\n\nWhat a day! Enter the amount you would like to invest: $";
   cin >> user_balance;
-  start_balance = user_balance;
   while (user_balance <= 0) {
     cout << "\nDon't be so negative! You'll have PLENTY Of time to lose all "
             "your money!";
     cout << "\nEnter a positivie starting balance: $";
     cin >> user_balance;
   }
+  start_balance = user_balance;
   cout << "\nGreat! What would you like to buy?";
   cout << "\nChoose three investments. Totally up to you, but remeber, "
           "diversification is key!\n";
@@ -247,9 +257,10 @@ int main() {
 
   // update user balance for purchase
   user_balance = user_balance - tmp3;
+  // cash variable used to keep track of uninvested funds
   cash = user_balance;
   user_balance = start_balance - cash;
-  cout << "\nCurrent portfolio is: $" << user_balance;
+  // cout << "\nCurrent portfolio is: $" << user_balance;
   cout << "\nCash balance is : $" << cash;
   cout << "\n\nHere's your portoflio:";
   cout << "\n"
@@ -270,38 +281,23 @@ int main() {
     // update prices
     investments[inv1]->setInvestmentPrice(
         investments[inv1]->getInvestmentPrice() +
-        (investments[inv1]->getInvestmentPrice() *
-        (rand()  %41 + (-20)) / 100.0 ));
-        //(((double)rand() / (RAND_MAX)) + 1));
+        (investments[inv1]->getInvestmentPrice() * (rand() % 41 + (-20)) /
+         100.0));
 
     investments[inv2]->setInvestmentPrice(
         investments[inv2]->getInvestmentPrice() +
-        (investments[inv2]->getInvestmentPrice() *
-        (rand()  %41 + (-20)) / 100.0 ));
-        //(1 + ((double)rand() / (RAND_MAX)) + 1));
+        (investments[inv2]->getInvestmentPrice() * (rand() % 41 + (-20)) /
+         100.0));
     investments[inv3]->setInvestmentPrice(
         investments[inv3]->getInvestmentPrice() +
-        (investments[inv3]->getInvestmentPrice() *
-        (rand()  %41 + (-20)) / 100.0 ));
-        //(1 + ((double)rand() / (RAND_MAX)) + 1));
+        (investments[inv3]->getInvestmentPrice() * (rand() % 41 + (-20)) /
+         100.0));
 
     // display new prices
     investments[inv1]->print();
     investments[inv2]->print();
     investments[inv3]->print();
 
-    /*
-    cout << "\n"
-         << investments[inv1]->getInvestmentName() << " is now trading at $"
-         << investments[inv1]->getInvestmentPrice();
-    cout << "\n"
-         << investments[inv2]->getInvestmentName() << " is now trading at $"
-         << investments[inv2]->getInvestmentPrice();
-    cout << "\n"
-         << investments[inv3]->getInvestmentName() << " is now trading at $"
-         << investments[inv3]->getInvestmentPrice();
-
-*/
     // recalculate investor balance
     user_balance = (investments[inv1]->getInvestmentPrice() * shares1) +
                    (investments[inv2]->getInvestmentPrice() * shares2) +
@@ -313,9 +309,13 @@ int main() {
     cin >> control;
   }
 
+  // exit while loop
+  // final user balance
   user_balance = user_balance + cash;
+  cout << "\nFinal portfolio value: $" << user_balance;
+  cout << "\nStarting balance was: $" << start_balance;
 
-  // calculate final balance and performance
+  // calculate performance based on ending balance
   if (user_balance > start_balance) {
     cout << "\nYour account had a gain of: "
          << (user_balance - start_balance) / start_balance * 100;
@@ -328,11 +328,6 @@ int main() {
     cout << "\nYour account had a loss of: "
          << (user_balance - start_balance) / start_balance * 100;
   }
-    cout << "%\n";
-
-    // for (auto i : investments) {
-    // i->print();
-    //}
-  
+  cout << "%\n";
 }
 

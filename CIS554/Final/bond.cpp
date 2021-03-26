@@ -2,8 +2,9 @@
 **
 **  File Name     : bond.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Wed 17 Mar 2021 06:39:31 PM PDT
+**  Last Modified : Fri 26 Mar 2021 11:46:07 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
+**  Description   : Bond class, inerhits from Investment base class
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
 ***==============================================================*/

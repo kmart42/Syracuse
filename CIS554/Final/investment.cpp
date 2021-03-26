@@ -2,9 +2,9 @@
 **
 **  File Name     : investment.cpp
 **  Creation Date : 03-15-2021
-**  Last Modified : Thu 18 Mar 2021 09:37:59 PM PDT
+**  Last Modified : Fri 26 Mar 2021 11:40:34 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
-**  Description   : Abstract base class Investment and member functions
+**  Description   : Base class Investment and related member functions
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
 ***==============================================================*/
@@ -62,6 +62,7 @@ bool Investment::validPurchase(double cost, double balance) {
 }
 
 // convert a user's input to vector index
+// also accepts 'prof' string for flexibility
 int Investment::convertChoice(string prof, string input) {
   if (input == "TSLA" || input == "tsla") {
     return 0;

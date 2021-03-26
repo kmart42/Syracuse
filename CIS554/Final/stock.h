@@ -2,7 +2,7 @@
 **
 **  File Name     : stock.h
 **  Creation Date : 03-16-2021
-**  Last Modified :
+**  Last Modified : Fri 26 Mar 2021 11:42:05 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Description   : Header file for stock class, stock.cpp
 **  Author        : Kevin Martin, kmarti44@syr.edu
@@ -18,7 +18,7 @@ class Stock : public Investment {
  public:
   Stock(const string &, const double &, const string &, const double &);
 
-  // new functions to get  and setstock exchange and volume for the day
+  // new functions to get and set stock exchange and volume for the day
   void setStockExchange(string);
   string getStockExchange() const;
 

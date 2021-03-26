@@ -2,7 +2,7 @@
 **
 **  File Name     : investment.h
 **  Creation Date : 03-15-2021
-**  Last Modified :
+**  Last Modified : Fri 23 Mar 2021 11:37:59 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Description   : Header file for base class, investment.cpp
 **  Author        : Kevin Martin, kmarti44@syr.edu
@@ -32,7 +32,6 @@ class Investment {
   virtual void setInvestmentPrice(const double &);
 
   // virtual functions for calculating price and printing information
-  // virtual double priceCalc() const = 0;
   virtual void print() const;
 
   // convert user choice (string) to vector index (int)

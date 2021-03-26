@@ -2,8 +2,9 @@
 **
 **  File Name     : memestock.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Fri 19 Mar 2021 11:41:48 AM PDT
+**  Last Modified : Fri 26 Mar 2021 11:51:10 AM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
+**  Description   : Memestock class, inherits from Stock.cpp
 **  Author        : Kevin Martin, kmarti44@syr.edu
 **  Organization  : Syracuse University
 ***==============================================================*/
@@ -30,6 +31,10 @@ void MemeStock::setMultiplier(int mult) { multipler = mult; }
 // get multiplier back for computation
 int MemeStock::getMultiplier() const { return multipler; }
 
+// multiply memestock by a random number
+// 1 in 10 chance the stock goes to zero
+// 3 in 10 chance stock doubles
+// otherwise normal price fluctuations
 void MemeStock::setInvestmentPrice(const double &price){
   srand(time(0));
   double tmp = (rand() % 10);
@@ -45,6 +50,7 @@ void MemeStock::setInvestmentPrice(const double &price){
 
 // modifiy base print function
 void MemeStock::print() const {
+  // fancy print statement for memestocks
   cout << "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*\n";
   // call stock print (not base, want to see exchange)
   Stock::print();

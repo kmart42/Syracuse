@@ -15,6 +15,7 @@
 // include stock, not base class
 #include "stock.h"
 
+// constructor, inherits from Stock (which inherits from Investment)
 class MemeStock : public Stock {
  public:
   MemeStock(const string &, const double &, const string &, const double &,
