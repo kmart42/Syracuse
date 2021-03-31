@@ -2,7 +2,7 @@
 **
 **  File Name     : investment.cpp
 **  Creation Date : 03-15-2021
-**  Last Modified : Fri 26 Mar 2021 11:40:34 AM PDT
+**  Last Modified : Tue 30 Mar 2021 04:00:21 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Description   : Base class Investment and related member functions
 **  Author        : Kevin Martin, kmarti44@syr.edu
@@ -53,7 +53,7 @@ void Investment::print() const {
 // check to see if user can actually make purchase
 bool Investment::validPurchase(double cost, double balance) {
   if (cost > balance) {
-    cout << "\nYou do not have sufficient funds to amke that purchase";
+    cout << "\nYou do not have sufficient funds to make that purchase";
     cout << "\nEnter a different investment/shares";
     return false;
   } else {

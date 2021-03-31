@@ -2,7 +2,7 @@
 **
 **  File Name     : main.cpp
 **  Creation Date : 03-16-2021
-**  Last Modified : Fri 26 Mar 2021 02:07:50 PM PDT
+**  Last Modified : Tue 30 Mar 2021 05:40:55 PM PDT
 **  Compiler      : g++ -Wall -O2 -std=c++17
 **  Description   : Investing game/app where user enters starting balance,
 **                  selects 3 investments, and then watches the prices
@@ -54,7 +54,7 @@ int main() {
   int inv3 = 0;
   bool balCheck = false;
   // edit here for new addition
-  string profChoice = " ";
+  string profChoice = "PROF";
 
   // format output stream
   cout << fixed << setprecision(2);
@@ -92,6 +92,8 @@ int main() {
   investments[11] =
       new MemeStock("HTZGQ", rand() % 1 + 2.2, "NASDAQ", rand() % 200 + 800, 1);
   // add 13th investment here
+  investments[12] =
+      new MemeStock("PROF", rand() % 1 + 2.2, "NASDAQ", rand() % 200 + 800, 1);
 
   // display welcome message
   cout
